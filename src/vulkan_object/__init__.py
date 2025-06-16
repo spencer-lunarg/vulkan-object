@@ -1,6 +1,7 @@
 import functools
 import importlib.resources
 import tempfile
+import os
 from xml.etree import ElementTree
 from typing import Any
 
@@ -17,7 +18,7 @@ __all__ = [
 
 # Create the simplified, cached public function
 @functools.lru_cache(maxsize=1)
-def get_vulkan_object(api_name: str = 'vulkan') -> VulkanObject:
+def get_vulkan_object(alternative_xml: str = None) -> VulkanObject:
     """
     Parses the bundled Vulkan registry (vk.xml) and returns the populated
     VulkanObject.
@@ -27,6 +28,7 @@ def get_vulkan_object(api_name: str = 'vulkan') -> VulkanObject:
 
     Args:
         api_name: The API name to parse from the registry, defaults to 'vulkan'.
+        alternative_xml: Supply a full path to a different vk.xml (used for testing future extensions)
 
     Returns:
         An initialized VulkanObject instance providing access to the
@@ -49,24 +51,28 @@ def get_vulkan_object(api_name: str = 'vulkan') -> VulkanObject:
     with tempfile.TemporaryDirectory() as output_dir:
         SetOutputDirectory(output_dir)
         SetOutputFileName("unused.txt")
-        SetTargetApiName(api_name)
-        SetMergedApiNames(None) # Set to None if not merging APIs
+        # TODO - Make a get_vulkan_sc_object() or pass this in as a parameter
+        SetTargetApiName('vulkan')
+        SetMergedApiNames(None)
 
         # Initialize the generator and the registry machinery
         generator = _InternalGenerator()
         base_options = BaseGeneratorOptions()
         reg = Registry(generator, base_options)
 
-        # Reliably find and parse vk.xml
-        try:
-            with importlib.resources.path('vulkan_object', 'vk.xml') as xml_path:
-                tree = ElementTree.parse(xml_path)
-                reg.loadElementTree(tree)
-
-        except FileNotFoundError:
-            raise RuntimeError(
-                "Could not find the bundled vk.xml - something has gone wrong with packaging."
-            )
+        if alternative_xml:
+            if not os.path.isfile(alternative_xml):
+                raise FileNotFoundError(f"The provided alternative XML file does not exist or is not a file: {alternative_xml}")
+            tree = ElementTree.parse(alternative_xml)
+            reg.loadElementTree(tree)
+        else:
+            # Reliably find and parse vk.xml
+            try:
+                with importlib.resources.path('vulkan_object', 'vk.xml') as xml_path:
+                    tree = ElementTree.parse(xml_path)
+                    reg.loadElementTree(tree)
+            except FileNotFoundError:
+                raise RuntimeError("Could not find the bundled vk.xml - something has gone wrong with packaging.")
 
         # This invokes reg.py and will populate _InternalGenerator
         reg.apiGen()

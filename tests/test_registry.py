@@ -1,4 +1,5 @@
 
+from pathlib import Path
 import pytest
 
 # Since the package is installed in editable mode, we can import it directly.
@@ -60,19 +61,20 @@ def test_caching_works():
     print("Success: Caching is working as expected.")
 
 
-# TODO - Add VulkanSC as a test (not working currently)
-@pytest.mark.parametrize("api_name", ["vulkan"])
-def test_different_apis(api_name: str):
+def test_alternative_xml_works():
     """
-    Tests that the function can be called with different `api_name` parameters.
-    Note: This requires clearing the cache to get a fresh object.
+    Ensures that alternative_xml works
     """
-    # Clear the cache to ensure we are actually re-running the logic
-    get_vulkan_object.cache_clear()
+    print("Running: test_alternative_xml_works")
 
-    print(f"Running: test_different_apis with api_name='{api_name}'")
-    vk_object = get_vulkan_object(api_name=api_name)
-    assert vk_object is not None
-    assert isinstance(vk_object, VulkanObject)
-    print(f"Success: Successfully loaded registry for '{api_name}'.")
+    current_test_file = Path(__file__)
+    project_root = current_test_file.parent.parent
+    alternative_xml_path = project_root / 'src' / 'vulkan_object' / 'vk.xml'
 
+    print(f"  - Using alternative XML path: {alternative_xml_path}")
+    assert alternative_xml_path.is_file(), f"Test setup error: vk.xml not found at {alternative_xml_path}"
+
+    vk_object = get_vulkan_object(alternative_xml=str(alternative_xml_path))
+
+    assert vk_object is not None, "get_vulkan_object() returned None"
+    print("Success: alternative_xml is working as expected.")

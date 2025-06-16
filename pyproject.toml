@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "vulkan_object"
+name = "vulkan-object"
 version = "1.4.318"
 authors = [
   { name="Spencer Fricke", email="spencer@lunarg.com" },

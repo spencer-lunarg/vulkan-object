@@ -9,8 +9,7 @@ It is very easy for people to mess up trying to process the `vk.xml` file, so we
 This python package makes it **super easy** to get going.
 
 ```bash
-# TODO - vulkan_object, vulkan-object, or VulkanObject??
-pip install vulkan_object
+pip install vulkan-object
 ```
 
 ```python
@@ -19,17 +18,14 @@ from vulkan_object import get_vulkan_object, VulkanObject
 vk = get_vulkan_object()
 
 print(f'There are now {len([x for x in vk.extensions.values()])} extensions in Vulkan')
+
+print(f'Built with the {vk.headerVersion} headers')
 ```
 
 ## Updating this repo
 
 run `python update.py /path/to/Vulkan-Headers` and it will do everything to sync this package up with the new headers
 
-# TODO Before releasing
-
-- Naming package `vulkan_object`, `vulkan-object` or `VulkanObject`
-- Naming `get_vulkan_object` the "python way?"
-- Have way to pass in a different `vk.xml` (useful for working on future extensions)
-- Make sure VulkanSC works as an api passed in
+## Testing locally
 
 To test, grab the repo and go `pip install -e .` in the root directory and will simulate grabbing it from `pip`
