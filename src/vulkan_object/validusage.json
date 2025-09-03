@@ -1,9 +1,9 @@
 {
   "version info": {
     "schema version": 2,
-    "api version": "1.4.325",
-    "comment": "from git branch: github-main commit: 72cd1f587fe55c80873fe6430d667056048a5113",
-    "date": "2025-08-08 13:20:43Z"
+    "api version": "1.4.326",
+    "comment": "from git branch: github-main commit: 9c6d565f72ba6929c239c3e20f90b6375acad3bd",
+    "date": "2025-08-29 19:08:13Z"
   },
   "validation": {
     "VkDeviceAddress": {
@@ -1342,7 +1342,7 @@
         },
         {
           "vuid": "VUID-VkCommandPoolCreateInfo-pNext-09909",
-          "text": "If the <code>pNext</code> chain includes a <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a> structure, then the queue family designated by <code>queueFamilyIndex</code> <strong class=\"purple\">must</strong> support the data graph processing engines specified in the <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a> structure",
+          "text": "If the <code>pNext</code> chain includes a <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a> structure, each member of <code>pProcessingEngines</code> <strong class=\"purple\">must</strong> be identical to <a href=\"#VkQueueFamilyDataGraphPropertiesARM\">VkQueueFamilyDataGraphPropertiesARM</a>::<code>engine</code> retrieved from <a href=\"#vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM\">vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM</a> with <code>queueFamilyIndex</code> and the <code>physicalDevice</code> that was used to create <code>device</code>",
           "page": "chapters/cmdbuffers.html"
         },
         {
@@ -2014,6 +2014,11 @@
           "page": "chapters/cmdbuffers.html"
         },
         {
+          "vuid": "VUID-vkQueueSubmit2-commandBuffer-10910",
+          "text": "If a command recorded into the <code>commandBuffer</code> member of any element of the <code>pCommandBufferInfos</code> member of any element of <code>pSubmits</code> includes a <a href=\"#synchronization-queue-transfers-acquire\">Queue Family Ownership Transfer Acquire Operation</a>, the affected resource <strong class=\"purple\">must</strong> not be modified in any way between the last matching release operation and the acquire operation",
+          "page": "chapters/cmdbuffers.html"
+        },
+        {
           "vuid": "VUID-vkQueueSubmit2-commandBuffer-03880",
           "text": "If a command recorded into the <code>commandBuffer</code> member of any element of the <code>pCommandBufferInfos</code> member of any element of <code>pSubmits</code> was a <a href=\"#vkCmdBeginQuery\">vkCmdBeginQuery</a> whose <code>queryPool</code> was created with a <code>queryType</code> of <code>VK_QUERY_TYPE_PERFORMANCE_QUERY_KHR</code>, the <a href=\"#profiling-lock\">profiling lock</a> <strong class=\"purple\">must</strong> have been held continuously on the <code>VkDevice</code> that <code>queue</code> was retrieved from, throughout recording of those command buffers",
           "page": "chapters/cmdbuffers.html"
@@ -2386,6 +2391,11 @@
         {
           "vuid": "VUID-vkQueueSubmit-pSubmits-02207",
           "text": "If any element of <code>pSubmits-&gt;pCommandBuffers</code> includes a <a href=\"#synchronization-queue-transfers-acquire\">Queue Family Ownership Transfer Acquire Operation</a>, there <strong class=\"purple\">must</strong> exist a previously submitted <a href=\"#synchronization-queue-transfers-release\">Queue Family Ownership Transfer Release Operation</a> on a queue in the queue family identified by the acquire operation, with parameters matching the acquire operation as defined in the definition of such <a href=\"#synchronization-queue-transfers-acquire\">acquire operations</a>, and which happens-before the acquire operation",
+          "page": "chapters/cmdbuffers.html"
+        },
+        {
+          "vuid": "VUID-vkQueueSubmit-pSubmits-10911",
+          "text": "If any element of <code>pSubmits-&gt;pCommandBuffers</code> includes a <a href=\"#synchronization-queue-transfers-acquire\">Queue Family Ownership Transfer Acquire Operation</a>, the affected resource <strong class=\"purple\">must</strong> not be modified in any way between the last matching release operation and the acquire operation",
           "page": "chapters/cmdbuffers.html"
         },
         {
@@ -9092,6 +9102,11 @@
           "page": "chapters/renderpass.html"
         },
         {
+          "vuid": "VUID-vkCmdBeginRendering-commandBuffer-10914",
+          "text": "If <code>commandBuffer</code> is a secondary command buffer, <code>VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT</code> <strong class=\"purple\">must</strong> not have been set in <a href=\"#VkCommandBufferBeginInfo\">VkCommandBufferBeginInfo</a>::<code>flags</code> when <code>commandBuffer</code> began",
+          "page": "chapters/renderpass.html"
+        },
+        {
           "vuid": "VUID-vkCmdBeginRendering-pRenderingInfo-09588",
           "text": "If <code>pRenderingInfo-&gt;pDepthAttachment</code> is not <code>NULL</code> and <code>pRenderingInfo-&gt;pDepthAttachment-&gt;imageView</code> is not <a href=\"#VK_NULL_HANDLE\">VK_NULL_HANDLE</a>, <code>pRenderingInfo-&gt;pDepthAttachment-&gt;imageView</code> <strong class=\"purple\">must</strong> be in the layout specified by <code>pRenderingInfo-&gt;pDepthAttachment-&gt;imageLayout</code>",
           "page": "chapters/renderpass.html"
@@ -10391,6 +10406,11 @@
           "page": "chapters/renderpass.html"
         },
         {
+          "vuid": "VUID-VkRenderPassCreateInfo-None-10915",
+          "text": "If any subpass preserves an attachment, there <strong class=\"purple\">must</strong> be a subpass dependency from a prior subpass which uses or preserves that attachment",
+          "page": "chapters/renderpass.html"
+        },
+        {
           "vuid": "VUID-VkRenderPassCreateInfo-sType-sType",
           "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <code>VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO</code>",
           "page": "chapters/renderpass.html"
@@ -11426,6 +11446,11 @@
         {
           "vuid": "VUID-VkRenderPassCreateInfo2-fragmentDensityMapAttachment-10651",
           "text": "If <a href=\"#VkRenderPassFragmentDensityMapCreateInfoEXT\">VkRenderPassFragmentDensityMapCreateInfoEXT</a>::<code>fragmentDensityMapAttachment</code> is not <code>VK_ATTACHMENT_UNUSED</code>, <code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> <strong class=\"purple\">must</strong> not be included in <a href=\"#VkRenderPassTileShadingCreateInfoQCOM\">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code>",
+          "page": "chapters/renderpass.html"
+        },
+        {
+          "vuid": "VUID-VkRenderPassCreateInfo2-None-10916",
+          "text": "If any subpass preserves an attachment, there <strong class=\"purple\">must</strong> be a subpass dependency from a prior subpass which uses or preserves that attachment",
           "page": "chapters/renderpass.html"
         },
         {
@@ -12619,6 +12644,11 @@
         {
           "vuid": "VUID-VkFramebufferCreateInfo-pAttachments-00879",
           "text": "If <code>renderpass</code> is not <a href=\"#VK_NULL_HANDLE\">VK_NULL_HANDLE</a>, <code>flags</code> does not include <code>VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT</code>, each element of <code>pAttachments</code> that is used as an input attachment by <code>renderPass</code> <strong class=\"purple\">must</strong> have been created with a <code>usage</code> value including <code>VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT</code>",
+          "page": "chapters/renderpass.html"
+        },
+        {
+          "vuid": "VUID-VkFramebufferCreateInfo-flags-10917",
+          "text": "If <code>flags</code> does not include <code>VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT</code>, each element of <code>pAttachments</code> that is used as a color attachment or resolve attachment by <code>renderPass</code> <strong class=\"purple\">must</strong> have been created with a <a href=\"#VkImageSubresourceRange\">VkImageSubresourceRange</a>::<code>aspectMask</code> including <code>VK_IMAGE_ASPECT_PLANE_0_BIT</code>, <code>VK_IMAGE_ASPECT_PLANE_1_BIT</code>, <code>VK_IMAGE_ASPECT_PLANE_2_BIT</code>, or <code>VK_IMAGE_ASPECT_COLOR_BIT</code>",
           "page": "chapters/renderpass.html"
         },
         {
@@ -16592,7 +16622,7 @@
         },
         {
           "vuid": "VUID-VkComputePipelineIndirectBufferInfoNV-pipelineDeviceAddressCaptureReplay-parameter",
-          "text": "<code>pipelineDeviceAddressCaptureReplay</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkDeviceAddress\">VkDeviceAddress</a> value",
+          "text": "If <code>pipelineDeviceAddressCaptureReplay</code> is not <code>0</code>, <code>pipelineDeviceAddressCaptureReplay</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkDeviceAddress\">VkDeviceAddress</a> value",
           "page": "chapters/pipelines.html"
         }
       ]
@@ -17005,6 +17035,11 @@
         {
           "vuid": "VUID-VkGraphicsPipelineCreateInfo-pDynamicStates-02510",
           "text": "If the pipeline requires <a href=\"#pipelines-graphics-subsets-fragment-shader\">fragment shader state</a>, the <code><a href=\"#VK_EXT_depth_range_unrestricted\">VK_EXT_depth_range_unrestricted</a></code> extension is not enabled and no element of the <code>pDynamicStates</code> member of <code>pDynamicState</code> is <code>VK_DYNAMIC_STATE_DEPTH_BOUNDS</code>, and the <code>depthBoundsTestEnable</code> member of <code>pDepthStencilState</code> is <code>VK_TRUE</code>, the <code>minDepthBounds</code> and <code>maxDepthBounds</code> members of <code>pDepthStencilState</code> <strong class=\"purple\">must</strong> be between <code>0.0</code> and <code>1.0</code>, inclusive",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkGraphicsPipelineCreateInfo-pDynamicStates-10913",
+          "text": "If the pipeline requires <a href=\"#pipelines-graphics-subsets-fragment-shader\">fragment shader state</a>, no element of the <code>pDynamicStates</code> member of <code>pDynamicState</code> is <code>VK_DYNAMIC_STATE_DEPTH_BOUNDS</code>, and <code>pDynamicStates</code> includes <code>VK_DYNAMIC_STATE_DEPTH_BOUNDS_TEST_ENABLE</code> or the <code>depthBoundsTestEnable</code> member of <code>pDepthStencilState</code> is <code>VK_TRUE</code>, <code>minDepthBounds</code> <strong class=\"purple\">must</strong> be less than or equal to <code>maxDepthBounds</code>",
           "page": "chapters/pipelines.html"
         },
         {
@@ -23747,7 +23782,7 @@
         },
         {
           "vuid": "VUID-VkBufferDeviceAddressCreateInfoEXT-deviceAddress-parameter",
-          "text": "<code>deviceAddress</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkDeviceAddress\">VkDeviceAddress</a> value",
+          "text": "If <code>deviceAddress</code> is not <code>0</code>, <code>deviceAddress</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkDeviceAddress\">VkDeviceAddress</a> value",
           "page": "chapters/resources.html"
         }
       ]
@@ -30595,7 +30630,7 @@
         },
         {
           "vuid": "VUID-VkDescriptorSetLayoutBinding-flags-08006",
-          "text": "If <a href=\"#VkDescriptorSetLayoutCreateInfo\">VkDescriptorSetLayoutCreateInfo</a>::<code>flags</code> contains <code>VK_DESCRIPTOR_SET_LAYOUT_CREATE_EMBEDDED_IMMUTABLE_SAMPLERS_BIT_EXT</code>, <code>descriptorCount</code> <strong class=\"purple\">must</strong> less than or equal to <code>1</code>",
+          "text": "If <a href=\"#VkDescriptorSetLayoutCreateInfo\">VkDescriptorSetLayoutCreateInfo</a>::<code>flags</code> contains <code>VK_DESCRIPTOR_SET_LAYOUT_CREATE_EMBEDDED_IMMUTABLE_SAMPLERS_BIT_EXT</code>, <code>descriptorCount</code> <strong class=\"purple\">must</strong> be less than or equal to <code>1</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -31280,6 +31315,11 @@
         {
           "vuid": "VUID-VkDescriptorPoolCreateInfo-pPoolSizes-09424",
           "text": "If <code>pPoolSizes</code> contains a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK</code>, the <code>pNext</code> chain <strong class=\"purple\">must</strong> include a <a href=\"#VkDescriptorPoolInlineUniformBlockCreateInfo\">VkDescriptorPoolInlineUniformBlockCreateInfo</a> structure whose <code>maxInlineUniformBlockBindings</code> member is not zero",
+          "page": "chapters/descriptorsets.html"
+        },
+        {
+          "vuid": "VUID-VkDescriptorPoolCreateInfo-pNext-09946",
+          "text": "If a <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a> structure is included in the <code>pNext</code> chain, each member of <code>pProcessingEngines</code> <strong class=\"purple\">must</strong> be identical to an <a href=\"#VkQueueFamilyDataGraphPropertiesARM\">VkQueueFamilyDataGraphPropertiesARM</a>::<code>engine</code> retrieved from <a href=\"#vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM\">vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM</a> with the <code>physicalDevice</code> that was used to create <code>device</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -33657,11 +33697,6 @@
           "page": "chapters/descriptorsets.html"
         },
         {
-          "vuid": "VUID-VkDescriptorAddressInfoEXT-None-08044",
-          "text": "If <code>address</code> is not zero, <code>address</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkDeviceAddress\">VkDeviceAddress</a>",
-          "page": "chapters/descriptorsets.html"
-        },
-        {
           "vuid": "VUID-VkDescriptorAddressInfoEXT-range-08045",
           "text": "<code>range</code> <strong class=\"purple\">must</strong> be less than or equal to the size of the buffer containing <code>address</code> minus the offset of <code>address</code> from the base address of the buffer",
           "page": "chapters/descriptorsets.html"
@@ -33683,7 +33718,7 @@
         },
         {
           "vuid": "VUID-VkDescriptorAddressInfoEXT-address-parameter",
-          "text": "<code>address</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkDeviceAddress\">VkDeviceAddress</a> value",
+          "text": "If <code>address</code> is not <code>0</code>, <code>address</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkDeviceAddress\">VkDeviceAddress</a> value",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -33752,6 +33787,11 @@
         {
           "vuid": "VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-08055",
           "text": "For any element of <code>pBindingInfos</code>, <code>usage</code> <strong class=\"purple\">must</strong> match the buffer from which <code>address</code> was queried",
+          "page": "chapters/descriptorsets.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-09947",
+          "text": "For all elements of <code>pBindingInfos</code>, the buffer from which <code>address</code> was queried <strong class=\"purple\">must</strong> have been created with the <code>VK_BUFFER_USAGE_2_DATA_GRAPH_FOREIGN_DESCRIPTOR_BIT_ARM</code> bit set if the command pool from which <code>commandBuffer</code> was allocated from was created with any element of <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a>::pProcessingEngines with <code>isForeign</code> set to <code>VK_TRUE</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -47181,7 +47221,7 @@
         },
         {
           "vuid": "VUID-vkCmdDraw-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -48735,7 +48775,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexed-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -50299,7 +50339,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMultiEXT-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -51873,7 +51913,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMultiIndexedEXT-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -53462,7 +53502,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirect-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -55065,7 +55105,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -56669,7 +56709,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -58282,7 +58322,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -59891,7 +59931,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectByteCountEXT-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -61602,7 +61642,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksNV-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -63056,7 +63096,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectNV-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -64569,7 +64609,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountNV-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -66093,7 +66133,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksEXT-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -67582,7 +67622,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectEXT-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -69130,7 +69170,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountEXT-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -70654,7 +70694,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawClusterHUAWEI-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -72123,7 +72163,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawClusterIndirectHUAWEI-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/drawing.html"
         },
         {
@@ -73893,11 +73933,6 @@
         {
           "vuid": "VUID-VkPipelineMultisampleStateCreateInfo-rasterizationSamples-parameter",
           "text": "<code>rasterizationSamples</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkSampleCountFlagBits\">VkSampleCountFlagBits</a> value",
-          "page": "chapters/primsrast.html"
-        },
-        {
-          "vuid": "VUID-VkPipelineMultisampleStateCreateInfo-pSampleMask-parameter",
-          "text": "If <code>pSampleMask</code> is not <code>NULL</code>, <code>pSampleMask</code> <strong class=\"purple\">must</strong> be a valid pointer to an array of \\(\\lceil{\\mathit{rasterizationSamples} \\over 32}\\rceil\\) <a href=\"#VkSampleMask\">VkSampleMask</a> values",
           "page": "chapters/primsrast.html"
         }
       ]
@@ -75779,6 +75814,11 @@
         {
           "vuid": "VUID-vkCmdSetDepthBounds-maxDepthBounds-00601",
           "text": "If the <code><a href=\"#VK_EXT_depth_range_unrestricted\">VK_EXT_depth_range_unrestricted</a></code> extension is not enabled <code>maxDepthBounds</code> <strong class=\"purple\">must</strong> be between <code>0.0</code> and <code>1.0</code>, inclusive",
+          "page": "chapters/fragops.html"
+        },
+        {
+          "vuid": "VUID-vkCmdSetDepthBounds-minDepthBounds-10912",
+          "text": "<code>minDepthBounds</code> <strong class=\"purple\">must</strong> be less than or equal to <code>maxDepthBounds</code>",
           "page": "chapters/fragops.html"
         },
         {
@@ -79482,7 +79522,7 @@
         },
         {
           "vuid": "VUID-VkIndirectCommandsLayoutCreateInfoEXT-tokenCount-11092",
-          "text": "<code>tokenCount</code> <strong class=\"purple\">must</strong> less than or equal to <a href=\"#VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT\">VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT</a>::<code>maxIndirectCommandsTokenCount</code>",
+          "text": "<code>tokenCount</code> <strong class=\"purple\">must</strong> be less than or equal to <a href=\"#VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT\">VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT</a>::<code>maxIndirectCommandsTokenCount</code>",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
@@ -82344,7 +82384,7 @@
         },
         {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
@@ -82499,7 +82539,7 @@
         },
         {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-isPreprocessed-02908",
-          "text": "If <code>isPreprocessed</code> is <code>VK_TRUE</code> then <a href=\"#vkCmdPreprocessGeneratedCommandsNV\">vkCmdPreprocessGeneratedCommandsNV</a> <strong class=\"purple\">must</strong> have already been executed on the device, using the same <code>pGeneratedCommandsInfo</code> content as well as the content of the input buffers it references (all except <a href=\"#VkGeneratedCommandsInfoNV\">VkGeneratedCommandsInfoNV</a>::<code>preprocessBuffer</code>). Furthermore <code>pGeneratedCommandsInfo</code>`s <code>indirectCommandsLayout</code> <strong class=\"purple\">must</strong> have been created with the <code>VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EXPLICIT_PREPROCESS_BIT_NV</code> bit set",
+          "text": "If <code>isPreprocessed</code> is <code>VK_TRUE</code> then <a href=\"#vkCmdPreprocessGeneratedCommandsNV\">vkCmdPreprocessGeneratedCommandsNV</a> <strong class=\"purple\">must</strong> have already been executed on the device, using the same <code>pGeneratedCommandsInfo</code> content as well as the content of the input buffers it references (all except <a href=\"#VkGeneratedCommandsInfoNV\">VkGeneratedCommandsInfoNV</a>::<code>preprocessBuffer</code>). Furthermore, <code>pGeneratedCommandsInfo</code>&#8217;s <code>indirectCommandsLayout</code> <strong class=\"purple\">must</strong> have been created with the <code>VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EXPLICIT_PREPROCESS_BIT_NV</code> bit set",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
@@ -82618,7 +82658,7 @@
         },
         {
           "vuid": "VUID-VkGeneratedCommandsInfoNV-preprocessSize-02920",
-          "text": "<code>preprocessSize</code> <strong class=\"purple\">must</strong> be at least equal to the memory requirement`s size returned by <a href=\"#vkGetGeneratedCommandsMemoryRequirementsNV\">vkGetGeneratedCommandsMemoryRequirementsNV</a> using the matching inputs (<code>indirectCommandsLayout</code>, &#8230;&#8203;) as within this structure",
+          "text": "<code>preprocessSize</code> <strong class=\"purple\">must</strong> be at least equal to the memory requirement&#8217;s size returned by <a href=\"#vkGetGeneratedCommandsMemoryRequirementsNV\">vkGetGeneratedCommandsMemoryRequirementsNV</a> using the matching inputs (<code>indirectCommandsLayout</code>, &#8230;&#8203;) as within this structure",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
@@ -84131,7 +84171,7 @@
         },
         {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-None-09548",
-          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, and there is no shader object bound to any graphics stage, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
+          "text": "If the current render pass was begun with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, there is no shader object bound to any graphics stage, and <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> has been called inside the render pass instance, the value of each element of <a href=\"#VkRenderingAttachmentLocationInfo\">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code> set by <a href=\"#vkCmdSetRenderingAttachmentLocations\">vkCmdSetRenderingAttachmentLocations</a> <strong class=\"purple\">must</strong> match the value set for the corresponding element in the bound pipeline",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
@@ -85865,20 +85905,20 @@
         }
       ]
     },
-    "VkOHSurfaceCreateInfoOHOS": {
+    "VkSurfaceCreateInfoOHOS": {
       "core": [
         {
-          "vuid": "VUID-VkOHSurfaceCreateInfoOHOS-sType-sType",
-          "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <code>VK_STRUCTURE_TYPE_OH_SURFACE_CREATE_INFO_OHOS</code>",
+          "vuid": "VUID-VkSurfaceCreateInfoOHOS-sType-sType",
+          "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <code>VK_STRUCTURE_TYPE_SURFACE_CREATE_INFO_OHOS</code>",
           "page": "chapters/VK_KHR_surface/wsi.html"
         },
         {
-          "vuid": "VUID-VkOHSurfaceCreateInfoOHOS-pNext-pNext",
+          "vuid": "VUID-VkSurfaceCreateInfoOHOS-pNext-pNext",
           "text": "<code>pNext</code> <strong class=\"purple\">must</strong> be <code>NULL</code>",
           "page": "chapters/VK_KHR_surface/wsi.html"
         },
         {
-          "vuid": "VUID-VkOHSurfaceCreateInfoOHOS-flags-zerobitmask",
+          "vuid": "VUID-VkSurfaceCreateInfoOHOS-flags-zerobitmask",
           "text": "<code>flags</code> <strong class=\"purple\">must</strong> be <code>0</code>",
           "page": "chapters/VK_KHR_surface/wsi.html"
         }
@@ -104012,18 +104052,13 @@
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
-          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-module-09769",
-          "text": "If a <a href=\"#interfaces-resources\">resource variable</a> is declared in <a href=\"#VkDataGraphPipelineShaderModuleCreateInfoARM\">VkDataGraphPipelineShaderModuleCreateInfoARM</a>::<code>module</code>, a descriptor slot in <code>layout</code> <strong class=\"purple\">must</strong> match the descriptor type",
+          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-layout-09769",
+          "text": "If a <a href=\"#VkDataGraphPipelineShaderModuleCreateInfoARM\">VkDataGraphPipelineShaderModuleCreateInfoARM</a> structure is included in the <code>pNext</code> chain and a <a href=\"#interfaces-resources\">resource variable</a> is declared in the shader module, the corresponding descriptor binding used to create <code>layout</code> <strong class=\"purple\">must</strong> have a <code>descriptorType</code> that corresponds to the type of the <a href=\"#interfaces-resources\">resource variable</a>",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
           "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-pNext-09875",
           "text": "If a <a href=\"#VkDataGraphPipelineIdentifierCreateInfoARM\">VkDataGraphPipelineIdentifierCreateInfoARM</a> structure is included in the <code>pNext</code> chain, then <code>flags</code> <strong class=\"purple\">must</strong> contain <code>VK_PIPELINE_CREATE_2_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</code>",
-          "page": "chapters/VK_ARM_data_graph/graphs.html"
-        },
-        {
-          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-pNext-09876",
-          "text": "If a <a href=\"#VkDataGraphPipelineIdentifierCreateInfoARM\">VkDataGraphPipelineIdentifierCreateInfoARM</a> structure is included in the <code>pNext</code> chain, then a <a href=\"#VkDataGraphPipelineShaderModuleCreateInfoARM\">VkDataGraphPipelineShaderModuleCreateInfoARM</a> structure <strong class=\"purple\">must</strong> not be included in the <code>pNext</code> chain",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
@@ -104037,8 +104072,8 @@
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
-          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-module-09934",
-          "text": "If a <a href=\"#interfaces-resources\">resource variable</a> is declared in <code>module</code> as an array, a descriptor slot in <code>layout</code> <strong class=\"purple\">must</strong> match the descriptor count",
+          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-layout-09934",
+          "text": "If a <a href=\"#VkDataGraphPipelineShaderModuleCreateInfoARM\">VkDataGraphPipelineShaderModuleCreateInfoARM</a> structure is included in the <code>pNext</code> chain and an array <a href=\"#interfaces-resources\">resource variable</a> is declared in the shader module, the corresponding descriptor binding used to create <code>layout</code> <strong class=\"purple\">must</strong> have a <code>descriptorCount</code> that matches the length of the array",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
@@ -104049,11 +104084,6 @@
         {
           "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-pSetLayouts-09770",
           "text": "The descriptor set layouts in <a href=\"#VkPipelineLayoutCreateInfo\">VkPipelineLayoutCreateInfo</a>::<code>pSetLayouts</code> used to create <code>layout</code> <strong class=\"purple\">must</strong> not include any <a href=\"#VkDescriptorSetLayoutBinding\">VkDescriptorSetLayoutBinding</a> whose descriptor type is <code>VK_DESCRIPTOR_TYPE_MUTABLE_EXT</code>",
-          "page": "chapters/VK_ARM_data_graph/graphs.html"
-        },
-        {
-          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-pResourceInfos-09771",
-          "text": "For each of the structures in <code>pResourceInfos</code>, <a href=\"#VkDataGraphPipelineResourceInfoARM\">VkDataGraphPipelineResourceInfoARM</a>::<code>descriptorSet</code> and <a href=\"#VkDataGraphPipelineResourceInfoARM\">VkDataGraphPipelineResourceInfoARM</a>::<code>binding</code> <strong class=\"purple\">must</strong> correspond to a <a href=\"#interfaces-resources\">resource variable</a> declared in <code>module</code>",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
@@ -104072,13 +104102,23 @@
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
+          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-pNext-09948",
+          "text": "If a <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a> structure is included in the <code>pNext</code> chain, each member of <code>pProcessingEngines</code> <strong class=\"purple\">must</strong> be identical to an <a href=\"#VkQueueFamilyDataGraphPropertiesARM\">VkQueueFamilyDataGraphPropertiesARM</a>::<code>engine</code> retrieved from <a href=\"#vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM\">vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM</a> with the <code>physicalDevice</code> that was used to create <code>device</code>",
+          "page": "chapters/VK_ARM_data_graph/graphs.html"
+        },
+        {
+          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-pNext-09949",
+          "text": "If a <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a> structure is not included in the <code>pNext</code> chain, <code>VK_PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_DEFAULT_ARM</code> <strong class=\"purple\">must</strong> be set in an <a href=\"#VkQueueFamilyDataGraphPropertiesARM\">VkQueueFamilyDataGraphPropertiesARM</a>::<code>engine</code> retrieved from <a href=\"#vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM\">vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM</a> with the <code>physicalDevice</code> that was used to create <code>device</code>",
+          "page": "chapters/VK_ARM_data_graph/graphs.html"
+        },
+        {
           "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-sType-sType",
           "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <code>VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CREATE_INFO_ARM</code>",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
           "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-pNext-pNext",
-          "text": "Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class=\"purple\">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href=\"#VkDataGraphPipelineCompilerControlCreateInfoARM\">VkDataGraphPipelineCompilerControlCreateInfoARM</a>, <a href=\"#VkDataGraphPipelineIdentifierCreateInfoARM\">VkDataGraphPipelineIdentifierCreateInfoARM</a>, <a href=\"#VkDataGraphPipelineShaderModuleCreateInfoARM\">VkDataGraphPipelineShaderModuleCreateInfoARM</a>, <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a>, or <a href=\"#VkPipelineCreationFeedbackCreateInfo\">VkPipelineCreationFeedbackCreateInfo</a>",
+          "text": "Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class=\"purple\">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href=\"#VkDataGraphPipelineCompilerControlCreateInfoARM\">VkDataGraphPipelineCompilerControlCreateInfoARM</a>, <a href=\"#VkDataGraphPipelineIdentifierCreateInfoARM\">VkDataGraphPipelineIdentifierCreateInfoARM</a>, <a href=\"#VkDataGraphPipelineShaderModuleCreateInfoARM\">VkDataGraphPipelineShaderModuleCreateInfoARM</a>, <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a>, <a href=\"#VkPipelineCreationFeedbackCreateInfo\">VkPipelineCreationFeedbackCreateInfo</a>, or <a href=\"#VkShaderModuleCreateInfo\">VkShaderModuleCreateInfo</a>",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
@@ -104164,11 +104204,6 @@
     },
     "VkDataGraphPipelineIdentifierCreateInfoARM": {
       "core": [
-        {
-          "vuid": "VUID-VkDataGraphPipelineIdentifierCreateInfoARM-pIdentifer-09877",
-          "text": "The data provided via <code>pIdentifer</code> <strong class=\"purple\">must</strong> have been obtained by calling <a href=\"#vkGetDataGraphPipelinePropertiesARM\">vkGetDataGraphPipelinePropertiesARM</a> to query the value of the <code>VK_DATA_GRAPH_PIPELINE_PROPERTY_IDENTIFIER_ARM</code> property",
-          "page": "chapters/VK_ARM_data_graph/graphs.html"
-        },
         {
           "vuid": "VUID-VkDataGraphPipelineIdentifierCreateInfoARM-sType-sType",
           "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <code>VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_IDENTIFIER_CREATE_INFO_ARM</code>",
@@ -104430,6 +104465,11 @@
     "vkGetDataGraphPipelineSessionMemoryRequirementsARM": {
       "core": [
         {
+          "vuid": "VUID-vkGetDataGraphPipelineSessionMemoryRequirementsARM-session-09950",
+          "text": "The <code>session</code> member of <code>pInfo</code> <strong class=\"purple\">must</strong> have been created with <code>device</code>",
+          "page": "chapters/VK_ARM_data_graph/graphs.html"
+        },
+        {
           "vuid": "VUID-vkGetDataGraphPipelineSessionMemoryRequirementsARM-bindPoint-09784",
           "text": "The <code>bindPoint</code> member of <code>pInfo</code> <strong class=\"purple\">must</strong> have been returned as part of a <a href=\"#VkDataGraphPipelineSessionBindPointRequirementARM\">VkDataGraphPipelineSessionBindPointRequirementARM</a> whose <code>bindPointType</code> member is <code>VK_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_TYPE_MEMORY_ARM</code> by a prior call to <a href=\"#vkGetDataGraphPipelineSessionMemoryRequirementsARM\">vkGetDataGraphPipelineSessionMemoryRequirementsARM</a> for the <code>session</code> member of <code>pInfo</code>",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
@@ -104625,6 +104665,11 @@
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
+          "vuid": "VUID-vkCmdDispatchDataGraphARM-dataGraphPipeline-09951",
+          "text": "The <a href=\"#VkPipeline\">VkPipeline</a> bound to the pipeline bind point used by this command <strong class=\"purple\">must</strong> be identical to the <code>dataGraphPipeline</code> used to create <code>session</code>",
+          "page": "chapters/VK_ARM_data_graph/graphs.html"
+        },
+        {
           "vuid": "VUID-vkCmdDispatchDataGraphARM-None-09797",
           "text": "For each set <em>n</em> that is statically used by a bound data graph pipeline, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em> at the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is compatible for set <em>n</em>, with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a>, as described in <a href=\"#descriptorsets-compatibility\">Pipeline Layout Compatibility</a>",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
@@ -104665,8 +104710,13 @@
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
-          "vuid": "VUID-vkCmdDispatchDataGraphARM-commandBuffer-09940",
-          "text": "If <code>commandBuffer</code> was allocated from a pool that was created with a <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a> structure in the <code>pNext</code> chain of <a href=\"#VkCommandPoolCreateInfo\">VkCommandPoolCreateInfo</a> that included a foreign data graph processing engine in its <code>pProcessingEngines</code> member, then all <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptors accessed as a result of this command <strong class=\"purple\">must</strong> be tied to <a href=\"#VkTensorARM\">VkTensorARM</a> objects that have been bound to memory created from external handle types reported as supported in a <a href=\"#VkQueueFamilyDataGraphProcessingEnginePropertiesARM\">VkQueueFamilyDataGraphProcessingEnginePropertiesARM</a>::<code>foreignMemoryHandleTypes</code> structure via <a href=\"#vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM\">vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM</a> with a <code>queueFamilyIndex</code> matching the one the command pool was created for, for all the foreign data graph processing engines that were part of the <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a> used to create the command pool",
+          "vuid": "VUID-vkCmdDispatchDataGraphARM-pipeline-09940",
+          "text": "If the <a href=\"#VkPipeline\">VkPipeline</a> bound to the pipeline bind point used by this command was created with a <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a> structure in the <code>pNext</code> chain of <a href=\"#VkDataGraphPipelineCreateInfoARM\">VkDataGraphPipelineCreateInfoARM</a> that included a foreign data graph processing engine in its <code>pProcessingEngines</code> member, then all <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptors accessed as a result of this command <strong class=\"purple\">must</strong> be <a href=\"#VkTensorARM\">VkTensorARM</a> objects that have been bound to memory allocated with <a href=\"#VkExportMemoryAllocateInfo\">VkExportMemoryAllocateInfo</a>::<code>handleTypes</code> with set bits that are a subset of the bits in <a href=\"#VkQueueFamilyDataGraphProcessingEnginePropertiesARM\">VkQueueFamilyDataGraphProcessingEnginePropertiesARM</a>::<code>foreignMemoryHandleTypes</code> structure queried via <a href=\"#vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM\">vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM</a> with a <code>queueFamilyIndex</code> matching the one the command pool used to create <code>commandBuffer</code> was created for and an identical <code>engineType</code>, for all the foreign data graph processing engines that were part of the <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a> used to create the <a href=\"#VkPipeline\">VkPipeline</a>",
+          "page": "chapters/VK_ARM_data_graph/graphs.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDispatchDataGraphARM-pNext-09952",
+          "text": "If the <a href=\"#VkPipeline\">VkPipeline</a> bound to the pipeline bind point used by this command was created with a <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a> structure in the <code>pNext</code> chain of <a href=\"#VkDataGraphPipelineCreateInfoARM\">VkDataGraphPipelineCreateInfoARM</a> that included a foreign data graph processing engine in its <code>pProcessingEngines</code> member, then all <code>session</code> bound memory <strong class=\"purple\">must</strong> have been allocated with <a href=\"#VkExportMemoryAllocateInfo\">VkExportMemoryAllocateInfo</a>::<code>handleTypes</code> with set bits that are a subset of the bits in <a href=\"#VkQueueFamilyDataGraphProcessingEnginePropertiesARM\">VkQueueFamilyDataGraphProcessingEnginePropertiesARM</a>::<code>foreignMemoryHandleTypes</code> structure queried via <a href=\"#vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM\">vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM</a> with a <code>queueFamilyIndex</code> matching the one the command pool used to create <code>commandBuffer</code> was created for and an identical <code>engineType</code>, for all the foreign data graph processing engines that were part of the <a href=\"#VkDataGraphProcessingEngineCreateInfoARM\">VkDataGraphProcessingEngineCreateInfoARM</a> used to create the <a href=\"#VkPipeline\">VkPipeline</a>",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
@@ -104748,11 +104798,6 @@
     "vkGetDataGraphPipelineAvailablePropertiesARM": {
       "core": [
         {
-          "vuid": "VUID-vkGetDataGraphPipelineAvailablePropertiesARM-dataGraphPipeline-09887",
-          "text": "The <code>dataGraphPipeline</code> member of <code>pPipelineInfo</code> <strong class=\"purple\">must</strong> have been returned by a call to <a href=\"#vkCreateDataGraphPipelinesARM\">vkCreateDataGraphPipelinesARM</a>",
-          "page": "chapters/VK_ARM_data_graph/graphs.html"
-        },
-        {
           "vuid": "VUID-vkGetDataGraphPipelineAvailablePropertiesARM-dataGraphPipeline-09888",
           "text": "The <code>dataGraphPipeline</code> member of <code>pPipelineInfo</code> <strong class=\"purple\">must</strong> have been created with <code>device</code>",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
@@ -104781,11 +104826,6 @@
     },
     "vkGetDataGraphPipelinePropertiesARM": {
       "core": [
-        {
-          "vuid": "VUID-vkGetDataGraphPipelinePropertiesARM-dataGraphPipeline-09869",
-          "text": "The <code>dataGraphPipeline</code> member of <code>pPipelineInfo</code> <strong class=\"purple\">must</strong> have been returned by a call to <a href=\"#vkCreateDataGraphPipelinesARM\">vkCreateDataGraphPipelinesARM</a>",
-          "page": "chapters/VK_ARM_data_graph/graphs.html"
-        },
         {
           "vuid": "VUID-vkGetDataGraphPipelinePropertiesARM-dataGraphPipeline-09802",
           "text": "The <code>dataGraphPipeline</code> member of <code>pPipelineInfo</code> <strong class=\"purple\">must</strong> have been created with <code>device</code>",
@@ -104949,6 +104989,11 @@
     },
     "VkDataGraphProcessingEngineCreateInfoARM": {
       "core": [
+        {
+          "vuid": "VUID-VkDataGraphProcessingEngineCreateInfoARM-dataGraph-09953",
+          "text": "The <a href=\"#features-dataGraph\"><code>dataGraph</code></a> feature <strong class=\"purple\">must</strong> be enabled",
+          "page": "chapters/VK_ARM_data_graph/graphs.html"
+        },
         {
           "vuid": "VUID-VkDataGraphProcessingEngineCreateInfoARM-pProcessingEngines-09918",
           "text": "<code>pProcessingEngines</code> <strong class=\"purple\">must</strong> not contain identical <a href=\"#VkPhysicalDeviceDataGraphProcessingEngineARM\">VkPhysicalDeviceDataGraphProcessingEngineARM</a> structures",
@@ -110584,6 +110629,11 @@
           "page": "appendices/spirvenv.html"
         },
         {
+          "vuid": "VUID-StandaloneSpirv-OpUntypedVariableKHR-11167",
+          "text": "Any <code>OpUntypedVariableKHR</code> <strong class=\"purple\">must</strong> have a <code>Data</code> <code>Type</code> operand specified",
+          "page": "appendices/spirvenv.html"
+        },
+        {
           "vuid": "VUID-StandaloneSpirv-PhysicalStorageBuffer64-04708",
           "text": "If the <code>PhysicalStorageBuffer64</code> addressing model is enabled, all instructions that support memory access operands and that use a physical pointer <strong class=\"purple\">must</strong> include the <code>Aligned</code> operand",
           "page": "appendices/spirvenv.html"
@@ -110596,6 +110646,11 @@
         {
           "vuid": "VUID-StandaloneSpirv-PhysicalStorageBuffer64-04710",
           "text": "If the <code>PhysicalStorageBuffer64</code> addressing model is enabled, <code>OpConvertUToPtr</code> and <code>OpConvertPtrToU</code> <strong class=\"purple\">must</strong> use an integer type whose <code>Width</code> is 64",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-PhysicalStorageBuffer64-06314",
+          "text": "If the <code>PhysicalStorageBuffer64</code> addressing model is enabled any load or store through a physical pointer type <strong class=\"purple\">must</strong> have an <code>Aligned</code> operand which is a multiple of the size of the largest scalar type in the pointed-to type",
           "page": "appendices/spirvenv.html"
         },
         {
@@ -111190,11 +111245,6 @@
         {
           "vuid": "VUID-RuntimeSpirv-XfbStride-06313",
           "text": "The XFB Stride value to <code>XfbStride</code> <strong class=\"purple\">must</strong> be less than or equal to <a href=\"#VkPhysicalDeviceTransformFeedbackPropertiesEXT\">VkPhysicalDeviceTransformFeedbackPropertiesEXT</a>::<code>maxTransformFeedbackBufferDataStride</code>",
-          "page": "appendices/spirvenv.html"
-        },
-        {
-          "vuid": "VUID-RuntimeSpirv-PhysicalStorageBuffer64-06314",
-          "text": "If the <code>PhysicalStorageBuffer64</code> addressing model is enabled any load or store through a physical pointer type <strong class=\"purple\">must</strong> be aligned to a multiple of the size of the largest scalar type in the pointed-to type",
           "page": "appendices/spirvenv.html"
         },
         {
@@ -111885,11 +111935,6 @@
         {
           "vuid": "VUID-RuntimeSpirv-OpTypeUntypedPointerKHR-11166",
           "text": "Any memory access made using an <code>OpTypeUntypedPointerKHR</code> must have an alignment that satisfies <a href=\"#interfaces-resources-layout\">Offset and Stride Assignment</a>",
-          "page": "appendices/spirvenv.html"
-        },
-        {
-          "vuid": "VUID-RuntimeSpirv-OpUntypedVariableKHR-11167",
-          "text": "Any <code>OpUntypedVariableKHR</code> <strong class=\"purple\">must</strong> have a <code>Data</code> <code>Type</code> operand specified",
           "page": "appendices/spirvenv.html"
         },
         {
