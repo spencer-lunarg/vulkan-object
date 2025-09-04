@@ -1,0 +1,20 @@
+version = 1
+SPDX-PackageName = "vulkan-object"
+SPDX-PackageSupplier = "The Khronos Group, Inc."
+SPDX-PackageDownloadLocation = "https://github.com/KhronosGroup/vulkan-object"
+
+[[annotations]]
+path = ["**.md", "WORKSPACE", ".git**", "**.in"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "The Khronos Group, Inc."
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "pyproject.toml",
+    "src/vulkan_object/profiles/VP_KHR_roadmap.json",
+    "src/vulkan_object/validusage.json"
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "The Khronos Group, Inc."
+SPDX-License-Identifier = "MIT"
