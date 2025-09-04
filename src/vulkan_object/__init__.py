@@ -1,3 +1,7 @@
+# Copyright 2025 The Khronos Group Inc.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import functools
 import importlib.resources
 import tempfile

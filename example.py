@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# Copyright 2025 The Khronos Group Inc.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 
 # Click on 'VulkanObject' with your IDE/TextEditor to see VulkanObject definition
 # https://github.com/KhronosGroup/Vulkan-Headers/blob/main/registry/vulkan_object.py
