@@ -1,9 +1,9 @@
 {
   "version info": {
     "schema version": 2,
-    "api version": "1.4.338",
-    "comment": "from git branch: github-main commit: 77466c6baac3c9fade77eda4a0db7158c809e98a",
-    "date": "2026-01-10 01:23:46Z"
+    "api version": "1.4.339",
+    "comment": "from git branch: github-main commit: 0dabb0dc0b0299448d4f1bfd182705c2257f8d63",
+    "date": "2026-01-16 02:41:10Z"
   },
   "validation": {
     "VkDeviceAddress": {
@@ -16789,6 +16789,21 @@
           "page": "chapters/pipelines.html"
         },
         {
+          "vuid": "VUID-VkComputePipelineCreateInfo-pipelineCreationCacheControl-02878",
+          "text": "If the <a href=\"#features-pipelineCreationCacheControl\"><code>pipelineCreationCacheControl</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_EARLY_RETURN_ON_FAILURE_BIT</a>",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkComputePipelineCreateInfo-pipelineProtectedAccess-07368",
+          "text": "If the <a href=\"#features-pipelineProtectedAccess\"><code>pipelineProtectedAccess</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkComputePipelineCreateInfo-flags-07369",
+          "text": "<code>flags</code> <strong class=\"purple\">must</strong> not include both <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> and <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
+          "page": "chapters/pipelines.html"
+        },
+        {
           "vuid": "VUID-VkComputePipelineCreateInfo-flags-03365",
           "text": "<code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_RAY_TRACING_NO_NULL_ANY_HIT_SHADERS_BIT_KHR</a>",
           "page": "chapters/pipelines.html"
@@ -16841,11 +16856,6 @@
         {
           "vuid": "VUID-VkComputePipelineCreateInfo-flags-11007",
           "text": "If <code>flags</code> includes <a href=\"#VkPipelineCreateFlagBits2KHR\">VK_PIPELINE_CREATE_2_INDIRECT_BINDABLE_BIT_EXT</a>, then the <a href=\"#features-deviceGeneratedCommands\"><code>VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT</code>::<code>deviceGeneratedCommands</code></a> feature <strong class=\"purple\">must</strong> be enabled",
-          "page": "chapters/pipelines.html"
-        },
-        {
-          "vuid": "VUID-VkComputePipelineCreateInfo-pipelineCreationCacheControl-02875",
-          "text": "If the <a href=\"#features-pipelineCreationCacheControl\"><code>pipelineCreationCacheControl</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a> or <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_EARLY_RETURN_ON_FAILURE_BIT</a>",
           "page": "chapters/pipelines.html"
         },
         {
@@ -17594,6 +17604,21 @@
           "page": "chapters/pipelines.html"
         },
         {
+          "vuid": "VUID-VkGraphicsPipelineCreateInfo-pipelineCreationCacheControl-02878",
+          "text": "If the <a href=\"#features-pipelineCreationCacheControl\"><code>pipelineCreationCacheControl</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_EARLY_RETURN_ON_FAILURE_BIT</a>",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkGraphicsPipelineCreateInfo-pipelineProtectedAccess-07368",
+          "text": "If the <a href=\"#features-pipelineProtectedAccess\"><code>pipelineProtectedAccess</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkGraphicsPipelineCreateInfo-flags-07369",
+          "text": "<code>flags</code> <strong class=\"purple\">must</strong> not include both <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> and <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
+          "page": "chapters/pipelines.html"
+        },
+        {
           "vuid": "VUID-VkGraphicsPipelineCreateInfo-stage-02096",
           "text": "If the pipeline requires <a href=\"#pipelines-graphics-subsets-pre-rasterization\">pre-rasterization shader state</a> the <code>stage</code> member of one element of <code>pStages</code> <strong class=\"purple\">must</strong> be <a href=\"#VkShaderStageFlagBits\">VK_SHADER_STAGE_VERTEX_BIT</a> or <a href=\"#VkShaderStageFlagBits\">VK_SHADER_STAGE_MESH_BIT_EXT</a>",
           "page": "chapters/pipelines.html"
@@ -18161,21 +18186,6 @@
         {
           "vuid": "VUID-VkGraphicsPipelineCreateInfo-flags-11001",
           "text": "If the pipeline requires <a href=\"#pipelines-graphics-subsets-pre-rasterization\">pre-rasterization shader state</a> and <code>flags</code> includes <a href=\"#VkPipelineCreateFlagBits2KHR\">VK_PIPELINE_CREATE_2_INDIRECT_BINDABLE_BIT_EXT</a>, then all stages <strong class=\"purple\">must</strong> not specify <code>Xfb</code> execution mode",
-          "page": "chapters/pipelines.html"
-        },
-        {
-          "vuid": "VUID-VkGraphicsPipelineCreateInfo-pipelineCreationCacheControl-02878",
-          "text": "If the <a href=\"#features-pipelineCreationCacheControl\"><code>pipelineCreationCacheControl</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a> or <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_EARLY_RETURN_ON_FAILURE_BIT</a>",
-          "page": "chapters/pipelines.html"
-        },
-        {
-          "vuid": "VUID-VkGraphicsPipelineCreateInfo-pipelineProtectedAccess-07368",
-          "text": "If the <a href=\"#features-pipelineProtectedAccess\"><code>pipelineProtectedAccess</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> or <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
-          "page": "chapters/pipelines.html"
-        },
-        {
-          "vuid": "VUID-VkGraphicsPipelineCreateInfo-flags-07369",
-          "text": "<code>flags</code> <strong class=\"purple\">must</strong> not include both <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> and <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
           "page": "chapters/pipelines.html"
         },
         {
@@ -19679,6 +19689,21 @@
           "page": "chapters/pipelines.html"
         },
         {
+          "vuid": "VUID-VkRayTracingPipelineCreateInfoKHR-pipelineCreationCacheControl-02878",
+          "text": "If the <a href=\"#features-pipelineCreationCacheControl\"><code>pipelineCreationCacheControl</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_EARLY_RETURN_ON_FAILURE_BIT</a>",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkRayTracingPipelineCreateInfoKHR-pipelineProtectedAccess-07368",
+          "text": "If the <a href=\"#features-pipelineProtectedAccess\"><code>pipelineProtectedAccess</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkRayTracingPipelineCreateInfoKHR-flags-07369",
+          "text": "<code>flags</code> <strong class=\"purple\">must</strong> not include both <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> and <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
+          "page": "chapters/pipelines.html"
+        },
+        {
           "vuid": "VUID-VkRayTracingPipelineCreateInfoKHR-pStages-03426",
           "text": "The shader code for the entry points identified by <code>pStages</code>, and the rest of the state identified by this structure <strong class=\"purple\">must</strong> adhere to the pipeline linking rules described in the <a href=\"#interfaces\">Shader Interfaces</a> chapter",
           "page": "chapters/pipelines.html"
@@ -19694,8 +19719,8 @@
           "page": "chapters/pipelines.html"
         },
         {
-          "vuid": "VUID-VkRayTracingPipelineCreateInfoKHR-pipelineCreationCacheControl-02905",
-          "text": "If the <a href=\"#features-pipelineCreationCacheControl\"><code>pipelineCreationCacheControl</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a> or <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_EARLY_RETURN_ON_FAILURE_BIT</a>",
+          "vuid": "VUID-VkRayTracingPipelineCreateInfoKHR-flags-12341",
+          "text": "<code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
           "page": "chapters/pipelines.html"
         },
         {
@@ -20144,6 +20169,21 @@
           "page": "chapters/pipelines.html"
         },
         {
+          "vuid": "VUID-VkRayTracingPipelineCreateInfoNV-pipelineCreationCacheControl-02878",
+          "text": "If the <a href=\"#features-pipelineCreationCacheControl\"><code>pipelineCreationCacheControl</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_EARLY_RETURN_ON_FAILURE_BIT</a>",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkRayTracingPipelineCreateInfoNV-pipelineProtectedAccess-07368",
+          "text": "If the <a href=\"#features-pipelineProtectedAccess\"><code>pipelineProtectedAccess</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkRayTracingPipelineCreateInfoNV-flags-07369",
+          "text": "<code>flags</code> <strong class=\"purple\">must</strong> not include both <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> and <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
+          "page": "chapters/pipelines.html"
+        },
+        {
           "vuid": "VUID-VkRayTracingPipelineCreateInfoNV-pStages-03426",
           "text": "The shader code for the entry points identified by <code>pStages</code>, and the rest of the state identified by this structure <strong class=\"purple\">must</strong> adhere to the pipeline linking rules described in the <a href=\"#interfaces\">Shader Interfaces</a> chapter",
           "page": "chapters/pipelines.html"
@@ -20159,8 +20199,8 @@
           "page": "chapters/pipelines.html"
         },
         {
-          "vuid": "VUID-VkRayTracingPipelineCreateInfoNV-pipelineCreationCacheControl-02905",
-          "text": "If the <a href=\"#features-pipelineCreationCacheControl\"><code>pipelineCreationCacheControl</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a> or <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_EARLY_RETURN_ON_FAILURE_BIT</a>",
+          "vuid": "VUID-VkRayTracingPipelineCreateInfoNV-flags-12341",
+          "text": "<code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
           "page": "chapters/pipelines.html"
         },
         {
@@ -24076,11 +24116,6 @@
     },
     "VkMemoryMapPlacedInfoEXT": {
       "core": [
-        {
-          "vuid": "VUID-VkMemoryMapPlacedInfoEXT-flags-09576",
-          "text": "If <code>VkMemoryMapInfo</code>::<code>flags</code> contains <a href=\"#VkMemoryMapFlagBits\">VK_MEMORY_MAP_PLACED_BIT_EXT</a>, <code>pPlacedAddress</code> <strong class=\"purple\">must</strong> not be <code>NULL</code>",
-          "page": "chapters/memory.html"
-        },
         {
           "vuid": "VUID-VkMemoryMapPlacedInfoEXT-pPlacedAddress-09577",
           "text": "<code>pPlacedAddress</code> <strong class=\"purple\">must</strong> be aligned to an integer multiple of <code>VkPhysicalDeviceMapMemoryPlacedPropertiesEXT</code>::<code>minPlacedMemoryMapAlignment</code>",
@@ -32316,11 +32351,6 @@
           "page": "chapters/descriptorsets.html"
         },
         {
-          "vuid": "VUID-vkDestroyPipelineLayout-pipelineLayout-02004",
-          "text": "<code>pipelineLayout</code> <strong class=\"purple\">must</strong> not have been passed to any <code>vkCmd*</code> command for any command buffers that are still in the <a href=\"#commandbuffers-lifecycle\">recording state</a> when <code>vkDestroyPipelineLayout</code> is called",
-          "page": "chapters/descriptorsets.html"
-        },
-        {
           "vuid": "VUID-vkDestroyPipelineLayout-device-parameter",
           "text": "<code>device</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkDevice\">VkDevice</a> handle",
           "page": "chapters/descriptorsets.html"
@@ -37572,7 +37602,12 @@
         },
         {
           "vuid": "VUID-PrimitivePointIndicesEXT-PrimitivePointIndicesEXT-07045",
-          "text": "All index values of the array decorated with <code>PrimitivePointIndicesEXT</code> <strong class=\"purple\">must</strong> be in the range <span class=\"eq\">[0, N-1]</span>, where <span class=\"eq\">N</span> is the value specified by the <code>OutputVertices</code> <code>Execution</code> <code>Mode</code>",
+          "text": "The index to access the array decorated with <code>PrimitivePointIndicesEXT</code> <strong class=\"purple\">must</strong> be in the range <span class=\"eq\">[0, N-1]</span>, where <span class=\"eq\">N</span> is the value specified by the &#8220;Primitive Count&#8221; operand of <code>OpSetMeshOutputsEXT</code>",
+          "page": "chapters/interfaces.html"
+        },
+        {
+          "vuid": "VUID-PrimitivePointIndicesEXT-PrimitivePointIndicesEXT-12335",
+          "text": "All index values written to the array decorated with <code>PrimitivePointIndicesEXT</code> <strong class=\"purple\">must</strong> be in the range <span class=\"eq\">[0, N-1]</span>, where <span class=\"eq\">N</span> is the value specified by the &#8220;Vertex Count&#8221; operand of <code>OpSetMeshOutputsEXT</code>",
           "page": "chapters/interfaces.html"
         },
         {
@@ -37606,7 +37641,12 @@
         },
         {
           "vuid": "VUID-PrimitiveLineIndicesEXT-PrimitiveLineIndicesEXT-07051",
-          "text": "All index values of the array decorated with <code>PrimitiveLineIndicesEXT</code> <strong class=\"purple\">must</strong> be in the range <span class=\"eq\">[0, N-1]</span>, where <span class=\"eq\">N</span> is the value specified by the <code>OutputVertices</code> <code>Execution</code> <code>Mode</code>",
+          "text": "The index to access the array decorated with <code>PrimitiveLineIndicesEXT</code> <strong class=\"purple\">must</strong> be in the range <span class=\"eq\">[0, N-1]</span>, where <span class=\"eq\">N</span> is the value specified by the &#8220;Primitive Count&#8221; operand of <code>OpSetMeshOutputsEXT</code>",
+          "page": "chapters/interfaces.html"
+        },
+        {
+          "vuid": "VUID-PrimitiveLineIndicesEXT-PrimitiveLineIndicesEXT-12336",
+          "text": "All index values written to the array decorated with <code>PrimitiveLineIndicesEXT</code> <strong class=\"purple\">must</strong> be in the range <span class=\"eq\">[0, N-1]</span>, where <span class=\"eq\">N</span> is the value specified by the &#8220;Vertex Count&#8221; operand of <code>OpSetMeshOutputsEXT</code>",
           "page": "chapters/interfaces.html"
         },
         {
@@ -37640,7 +37680,12 @@
         },
         {
           "vuid": "VUID-PrimitiveTriangleIndicesEXT-PrimitiveTriangleIndicesEXT-07057",
-          "text": "All index values of the array decorated with <code>PrimitiveTriangleIndicesEXT</code> <strong class=\"purple\">must</strong> be in the range <span class=\"eq\">[0, N-1]</span>, where <span class=\"eq\">N</span> is the value specified by the <code>OutputVertices</code> <code>Execution</code> <code>Mode</code>",
+          "text": "The index to access the array decorated with <code>PrimitiveTriangleIndicesEXT</code> <strong class=\"purple\">must</strong> be in the range <span class=\"eq\">[0, N-1]</span>, where <span class=\"eq\">N</span> is the value specified by the &#8220;Primitive Count&#8221; operand of <code>OpSetMeshOutputsEXT</code>",
+          "page": "chapters/interfaces.html"
+        },
+        {
+          "vuid": "VUID-PrimitiveTriangleIndicesEXT-PrimitiveTriangleIndicesEXT-12337",
+          "text": "All index values written to the array decorated with <code>PrimitiveTriangleIndicesEXT</code> <strong class=\"purple\">must</strong> be in the range <span class=\"eq\">[0, N-1]</span>, where <span class=\"eq\">N</span> is the value specified by the &#8220;Vertex Count&#8221; operand of <code>OpSetMeshOutputsEXT</code>",
           "page": "chapters/interfaces.html"
         },
         {
@@ -48452,27 +48497,37 @@
         },
         {
           "vuid": "VUID-vkCmdDraw-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDraw-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDraw-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDraw-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDraw-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDraw-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDraw-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDraw-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -50176,27 +50231,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexed-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexed-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexed-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexed-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexed-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexed-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexed-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexed-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -51910,27 +51975,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMultiEXT-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMultiEXT-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMultiEXT-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMultiEXT-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMultiEXT-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMultiEXT-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMultiEXT-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMultiEXT-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -53654,27 +53729,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMultiIndexedEXT-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMultiIndexedEXT-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMultiIndexedEXT-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMultiIndexedEXT-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMultiIndexedEXT-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMultiIndexedEXT-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMultiIndexedEXT-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMultiIndexedEXT-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -55413,27 +55498,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirect-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirect-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirect-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirect-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirect-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirect-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirect-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirect-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -57186,27 +57281,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirectCount-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirectCount-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirectCount-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirectCount-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -58960,27 +59065,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -60743,27 +60858,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -62522,27 +62647,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectByteCountEXT-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectByteCountEXT-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectByteCountEXT-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirectByteCountEXT-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirectByteCountEXT-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirectByteCountEXT-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectByteCountEXT-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirectByteCountEXT-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -64413,27 +64548,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksNV-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksNV-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksNV-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksNV-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksNV-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksNV-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksNV-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksNV-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -66017,27 +66162,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectNV-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectNV-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectNV-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksIndirectNV-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksIndirectNV-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksIndirectNV-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectNV-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectNV-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -67680,27 +67835,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountNV-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountNV-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountNV-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountNV-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountNV-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountNV-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountNV-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountNV-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -69354,27 +69519,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksEXT-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksEXT-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksEXT-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksEXT-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksEXT-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksEXT-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksEXT-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksEXT-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -70993,27 +71168,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectEXT-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectEXT-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectEXT-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksIndirectEXT-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksIndirectEXT-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksIndirectEXT-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectEXT-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectEXT-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -72691,27 +72876,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountEXT-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountEXT-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountEXT-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountEXT-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountEXT-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountEXT-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountEXT-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountEXT-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -74365,27 +74560,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawClusterHUAWEI-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawClusterHUAWEI-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawClusterHUAWEI-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawClusterHUAWEI-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawClusterHUAWEI-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawClusterHUAWEI-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawClusterHUAWEI-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawClusterHUAWEI-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -75984,27 +76189,37 @@
         },
         {
           "vuid": "VUID-vkCmdDrawClusterIndirectHUAWEI-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawClusterIndirectHUAWEI-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawClusterIndirectHUAWEI-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawClusterIndirectHUAWEI-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawClusterIndirectHUAWEI-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawClusterIndirectHUAWEI-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawClusterIndirectHUAWEI-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawClusterIndirectHUAWEI-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/drawing.html"
         },
         {
@@ -86463,27 +86678,37 @@
         },
         {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/device_generated_commands/generatedcommands.html"
+        },
+        {
+          "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/device_generated_commands/generatedcommands.html"
+        },
+        {
+          "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/device_generated_commands/generatedcommands.html"
+        },
+        {
+          "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/device_generated_commands/generatedcommands.html"
-        },
-        {
-          "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
@@ -88425,27 +88650,37 @@
         },
         {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-None-10795",
-          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a> is\nset on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-None-10796",
-          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-None-10797",
-          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for it, and either:<div class=\"ulist\">\n<ul>\n<li>\n<p>\nthe\n<a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</a>\nis set on the bound pipeline\nor</p>\n</li>\n<li>\n<p>the last call to <a href=\"#vkCmdSetAttachmentFeedbackLoopEnableEXT\">vkCmdSetAttachmentFeedbackLoopEnableEXT</a> included\n<a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> and</p>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>there is no bound graphics pipeline or</p>\n</li>\n<li>\n<p>the bound graphics pipeline was created with\n<a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</a></p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
+          "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this command",
+          "page": "chapters/device_generated_commands/generatedcommands.html"
+        },
+        {
+          "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-None-12338",
+          "text": "If a color attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a> on that attachment, the color attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/device_generated_commands/generatedcommands.html"
+        },
+        {
+          "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-None-12339",
+          "text": "If a depth attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_DEPTH_BIT</a> on that attachment, the depth attachment <strong class=\"purple\">must</strong> not be written to by this command",
+          "page": "chapters/device_generated_commands/generatedcommands.html"
+        },
+        {
+          "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-None-12340",
+          "text": "If a stencil attachment is read in this command in any way other than as an attachment, or has been read by any prior command in this subpass as a non-attachment, and <a href=\"#renderpass-feedbackloop\">feedback loop</a> is not enabled for <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_STENCIL_BIT</a> on that attachment, the stencil attachment <strong class=\"purple\">must</strong> not be written to by this command",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-None-09003",
           "text": "If an attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass, it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment, storage image, or sampled image by this command",
-          "page": "chapters/device_generated_commands/generatedcommands.html"
-        },
-        {
-          "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-None-06539",
-          "text": "If any previously recorded command in the current subpass accessed an image subresource used as an attachment in this subpass in any way other than as an attachment, this command <strong class=\"purple\">must</strong> not write to that image subresource as an attachment",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
@@ -108285,6 +108520,21 @@
           "page": "chapters/executiongraphs.html"
         },
         {
+          "vuid": "VUID-VkExecutionGraphPipelineCreateInfoAMDX-pipelineCreationCacheControl-02878",
+          "text": "If the <a href=\"#features-pipelineCreationCacheControl\"><code>pipelineCreationCacheControl</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_EARLY_RETURN_ON_FAILURE_BIT</a>",
+          "page": "chapters/executiongraphs.html"
+        },
+        {
+          "vuid": "VUID-VkExecutionGraphPipelineCreateInfoAMDX-pipelineProtectedAccess-07368",
+          "text": "If the <a href=\"#features-pipelineProtectedAccess\"><code>pipelineProtectedAccess</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
+          "page": "chapters/executiongraphs.html"
+        },
+        {
+          "vuid": "VUID-VkExecutionGraphPipelineCreateInfoAMDX-flags-07369",
+          "text": "<code>flags</code> <strong class=\"purple\">must</strong> not include both <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> and <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
+          "page": "chapters/executiongraphs.html"
+        },
+        {
           "vuid": "VUID-VkExecutionGraphPipelineCreateInfoAMDX-flags-03365",
           "text": "<code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_RAY_TRACING_NO_NULL_ANY_HIT_SHADERS_BIT_KHR</a>",
           "page": "chapters/executiongraphs.html"
@@ -108337,11 +108587,6 @@
         {
           "vuid": "VUID-VkExecutionGraphPipelineCreateInfoAMDX-flags-11007",
           "text": "If <code>flags</code> includes <a href=\"#VkPipelineCreateFlagBits2KHR\">VK_PIPELINE_CREATE_2_INDIRECT_BINDABLE_BIT_EXT</a>, then the <a href=\"#features-deviceGeneratedCommands\"><code>VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT</code>::<code>deviceGeneratedCommands</code></a> feature <strong class=\"purple\">must</strong> be enabled",
-          "page": "chapters/executiongraphs.html"
-        },
-        {
-          "vuid": "VUID-VkExecutionGraphPipelineCreateInfoAMDX-pipelineCreationCacheControl-02875",
-          "text": "If the <a href=\"#features-pipelineCreationCacheControl\"><code>pipelineCreationCacheControl</code></a> feature is not enabled, <code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a> or <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_EARLY_RETURN_ON_FAILURE_BIT</a>",
           "page": "chapters/executiongraphs.html"
         },
         {
@@ -108422,6 +108667,11 @@
         {
           "vuid": "VUID-VkExecutionGraphPipelineCreateInfoAMDX-flags-10184",
           "text": "If <code>flags</code> does not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_LIBRARY_BIT_KHR</a>, and an output payload declared in any shader in the pipeline does not have a <code>PayloadNodeSparseArrayAMDX</code> decoration, there <strong class=\"purple\">must</strong> be a node in the graph corresponding to every index from 0 to its <code>PayloadNodeArraySizeAMDX</code> decoration",
+          "page": "chapters/executiongraphs.html"
+        },
+        {
+          "vuid": "VUID-VkExecutionGraphPipelineCreateInfoAMDX-flags-12334",
+          "text": "<code>flags</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a> nor <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
           "page": "chapters/executiongraphs.html"
         },
         {
