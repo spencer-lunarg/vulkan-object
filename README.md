@@ -39,6 +39,16 @@ Just run the following and you can quickly use `vk` in your terminal for some qu
 
 `python -i -c "from vulkan_object import get_vulkan_object;vk = get_vulkan_object()"`
 
+## Vulkan Video
+
+> Added in 1.4.342 release
+
+By default, the `video.xml` file is not parsed, but can be turned on. (example: [video_example.py](https://github.com/KhronosGroup/vulkan-object/blob/main/video_example.py))
+
+```python
+vk = get_vulkan_object(video=True)
+```
+
 ## More example
 
 [example.py](https://github.com/KhronosGroup/vulkan-object/blob/main/example.py) has more in depth ways to use this

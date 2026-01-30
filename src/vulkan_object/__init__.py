@@ -22,7 +22,7 @@ __all__ = [
 
 # Create the simplified, cached public function
 @functools.lru_cache(maxsize=1)
-def get_vulkan_object(alternative_xml: str = None) -> VulkanObject:
+def get_vulkan_object(alternative_xml: str = None, video: bool = False) -> VulkanObject:
     """
     Parses the bundled Vulkan registry (vk.xml) and returns the populated
     VulkanObject.
@@ -59,24 +59,41 @@ def get_vulkan_object(alternative_xml: str = None) -> VulkanObject:
         SetTargetApiName('vulkan')
         SetMergedApiNames(None)
 
-        # Initialize the generator and the registry machinery
-        generator = _InternalGenerator()
-        base_options = BaseGeneratorOptions()
-        reg = Registry(generator, base_options)
-
         if alternative_xml:
             if not os.path.isfile(alternative_xml):
                 raise FileNotFoundError(f"The provided alternative XML file does not exist or is not a file: {alternative_xml}")
             tree = ElementTree.parse(alternative_xml)
             reg.loadElementTree(tree)
         else:
-            # Reliably find and parse vk.xml
+            xml_path = None
+            # Try the installed package resource first
             try:
-                with importlib.resources.path('vulkan_object', 'vk.xml') as xml_path:
-                    tree = ElementTree.parse(xml_path)
-                    reg.loadElementTree(tree)
-            except FileNotFoundError:
+                resource_path = importlib.resources.files('vulkan_object').joinpath('vk.xml')
+                if resource_path.is_file():
+                    xml_path = resource_path
+            except (ImportError, ModuleNotFoundError, TypeError):
+                xml_path = None
+
+            # Fallback: Check local development path 'src/vulkan_object/vk.xml'
+            if xml_path is None:
+                base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                fallback_path = os.path.join(base_dir, 'vulkan_object', 'vk.xml')
+                if os.path.exists(fallback_path):
+                    xml_path = fallback_path
+
+            if xml_path is None:
                 raise RuntimeError("Could not find the bundled vk.xml - something has gone wrong with packaging.")
+
+        video_xml_path = None
+        if video:
+            video_xml_path = xml_path[:-6] + 'video.xml'
+
+        # Initialize the generator and the registry machinery
+        generator = _InternalGenerator()
+        base_options = BaseGeneratorOptions(videoXmlPath=video_xml_path)
+        reg = Registry(generator, base_options)
+        tree = ElementTree.parse(xml_path)
+        reg.loadElementTree(tree)
 
         # This invokes reg.py and will populate _InternalGenerator
         reg.apiGen()

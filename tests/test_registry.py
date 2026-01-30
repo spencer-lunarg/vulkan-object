@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 
 # Since the package is installed in editable mode, we can import it directly.
-from vulkan_object import get_vulkan_object, VulkanObject
+from vulkan_object import get_vulkan_object, VulkanObject, VideoStd
 
 def test_get_vulkan_object_successfully():
     """
@@ -81,3 +81,15 @@ def test_alternative_xml_works():
 
     assert vk_object is not None, "get_vulkan_object() returned None"
     print("Success: alternative_xml is working as expected.")
+
+def test_get_vulkan_object_video():
+    print("Running: test_get_vulkan_object_video")
+    vk_object = get_vulkan_object(video=True)
+
+    # Check that the function returned an object
+    assert vk_object is not None, "get_vulkan_object(video=True) returned None"
+
+    # Check that the returned object is of the expected class
+    assert isinstance(vk_object, VulkanObject), f"Expected VulkanObject, but got {type(vk_object)}"
+    assert isinstance(vk_object.videoStd, VideoStd),  f"Expected VideoStd, but got {type(vk_object.videoStd)}"
+    print("Success: Returned object is a non-None VulkanObject.")

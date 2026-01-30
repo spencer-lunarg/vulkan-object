@@ -6,6 +6,11 @@
 
 # Click on 'VulkanObject' with your IDE/TextEditor to see VulkanObject definition
 # https://github.com/KhronosGroup/Vulkan-Headers/blob/main/registry/vulkan_object.py
+#
+# This needs to be ran after installing the package
+#
+# If you cloned the repo, need to update this to 'src.vulkan_object' or you will get
+#   ModuleNotFoundError: No module named 'vulkan_object'
 from vulkan_object import get_vulkan_object, VulkanObject
 
 vk = get_vulkan_object()
