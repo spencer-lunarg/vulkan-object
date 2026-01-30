@@ -70,7 +70,7 @@ def get_vulkan_object(alternative_xml: str = None, video: bool = False) -> Vulka
             try:
                 resource_path = importlib.resources.files('vulkan_object').joinpath('vk.xml')
                 if resource_path.is_file():
-                    xml_path = resource_path
+                    xml_path = str(resource_path)
             except (ImportError, ModuleNotFoundError, TypeError):
                 xml_path = None
 
