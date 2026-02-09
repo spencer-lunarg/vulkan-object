@@ -1,9 +1,9 @@
 {
   "version info": {
     "schema version": 2,
-    "api version": "1.4.342",
-    "comment": "from git branch: github-main commit: 98b6c43a7672a68cdf2e3225b29577165c584fbf",
-    "date": "2026-01-30 00:26:44Z"
+    "api version": "1.4.343",
+    "comment": "from git branch: github-main commit: fb8116669f76e26bdab4c7ad0bf1cafdeff484dc",
+    "date": "2026-02-06 04:34:21Z"
   },
   "validation": {
     "VkDeviceAddress": {
@@ -5583,6 +5583,26 @@
     "vkCmdWaitEvents2": {
       "core": [
         {
+          "vuid": "VUID-vkCmdWaitEvents2-image-09373",
+          "text": "If <code>vkCmdWaitEvents2</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, and the <code>image</code> member of any image memory barrier is a color resolve attachment, the corresponding color attachment <strong class=\"purple\">must</strong> be <a href=\"#VK_ATTACHMENT_UNUSED\">VK_ATTACHMENT_UNUSED</a>",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdWaitEvents2-image-09374",
+          "text": "If <code>vkCmdWaitEvents2</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, and the <code>image</code> member of any image memory barrier is a color resolve attachment, it <strong class=\"purple\">must</strong> have been created with a non-zero <a href=\"#VkExternalFormatANDROID\">VkExternalFormatANDROID</a>::<code>externalFormat</code> value",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdWaitEvents2-oldLayout-01181",
+          "text": "If <code>vkCmdWaitEvents2</code> is called within a render pass instance, the <code>oldLayout</code> and <code>newLayout</code> members of any image memory barrier included in this command <strong class=\"purple\">must</strong> be equal",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdWaitEvents2-srcQueueFamilyIndex-01182",
+          "text": "If <code>vkCmdWaitEvents2</code> is called within a render pass instance, the <code>srcQueueFamilyIndex</code> and <code>dstQueueFamilyIndex</code> members of any memory barrier included in this command <strong class=\"purple\">must</strong> be equal",
+          "page": "chapters/synchronization.html"
+        },
+        {
           "vuid": "VUID-vkCmdWaitEvents2-synchronization2-03836",
           "text": "The <a href=\"#features-synchronization2\"><code>synchronization2</code></a> feature <strong class=\"purple\">must</strong> be enabled",
           "page": "chapters/synchronization.html"
@@ -5852,6 +5872,26 @@
           "page": "chapters/synchronization.html"
         },
         {
+          "vuid": "VUID-vkCmdWaitEvents-image-09373",
+          "text": "If <code>vkCmdWaitEvents</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, and the <code>image</code> member of any image memory barrier is a color resolve attachment, the corresponding color attachment <strong class=\"purple\">must</strong> be <a href=\"#VK_ATTACHMENT_UNUSED\">VK_ATTACHMENT_UNUSED</a>",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdWaitEvents-image-09374",
+          "text": "If <code>vkCmdWaitEvents</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, and the <code>image</code> member of any image memory barrier is a color resolve attachment, it <strong class=\"purple\">must</strong> have been created with a non-zero <a href=\"#VkExternalFormatANDROID\">VkExternalFormatANDROID</a>::<code>externalFormat</code> value",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdWaitEvents-oldLayout-01181",
+          "text": "If <code>vkCmdWaitEvents</code> is called within a render pass instance, the <code>oldLayout</code> and <code>newLayout</code> members of any image memory barrier included in this command <strong class=\"purple\">must</strong> be equal",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdWaitEvents-srcQueueFamilyIndex-01182",
+          "text": "If <code>vkCmdWaitEvents</code> is called within a render pass instance, the <code>srcQueueFamilyIndex</code> and <code>dstQueueFamilyIndex</code> members of any memory barrier included in this command <strong class=\"purple\">must</strong> be equal",
+          "page": "chapters/synchronization.html"
+        },
+        {
           "vuid": "VUID-vkCmdWaitEvents-srcStageMask-06459",
           "text": "Any pipeline stage included in <code>srcStageMask</code> <strong class=\"purple\">must</strong> be supported by the capabilities of the queue family specified by the <code>queueFamilyIndex</code> member of the <a href=\"#VkCommandPoolCreateInfo\">VkCommandPoolCreateInfo</a> structure that was used to create the <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from, as specified in the <a href=\"#synchronization-pipeline-stages-supported\">table of supported pipeline stages</a>",
           "page": "chapters/synchronization.html"
@@ -5971,26 +6011,6 @@
           "page": "chapters/synchronization.html"
         },
         {
-          "vuid": "VUID-vkCmdPipelineBarrier2-image-09373",
-          "text": "If <code>vkCmdPipelineBarrier2</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, and the <code>image</code> member of any image memory barrier is a color resolve attachment, the corresponding color attachment <strong class=\"purple\">must</strong> be <a href=\"#VK_ATTACHMENT_UNUSED\">VK_ATTACHMENT_UNUSED</a>",
-          "page": "chapters/synchronization.html"
-        },
-        {
-          "vuid": "VUID-vkCmdPipelineBarrier2-image-09374",
-          "text": "If <code>vkCmdPipelineBarrier2</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, and the <code>image</code> member of any image memory barrier is a color resolve attachment, it <strong class=\"purple\">must</strong> have been created with a non-zero <a href=\"#VkExternalFormatANDROID\">VkExternalFormatANDROID</a>::<code>externalFormat</code> value",
-          "page": "chapters/synchronization.html"
-        },
-        {
-          "vuid": "VUID-vkCmdPipelineBarrier2-oldLayout-01181",
-          "text": "If <code>vkCmdPipelineBarrier2</code> is called within a render pass instance, the <code>oldLayout</code> and <code>newLayout</code> members of any image memory barrier included in this command <strong class=\"purple\">must</strong> be equal",
-          "page": "chapters/synchronization.html"
-        },
-        {
-          "vuid": "VUID-vkCmdPipelineBarrier2-srcQueueFamilyIndex-01182",
-          "text": "If <code>vkCmdPipelineBarrier2</code> is called within a render pass instance, the <code>srcQueueFamilyIndex</code> and <code>dstQueueFamilyIndex</code> members of any memory barrier included in this command <strong class=\"purple\">must</strong> be equal",
-          "page": "chapters/synchronization.html"
-        },
-        {
           "vuid": "VUID-vkCmdPipelineBarrier2-None-07890",
           "text": "If <code>vkCmdPipelineBarrier2</code> is called within a render pass instance, and the source stage masks of any memory barriers include <a href=\"#synchronization-framebuffer-regions\">framebuffer-space stages</a>, destination stage masks of all memory barriers <strong class=\"purple\">must</strong> only include <a href=\"#synchronization-framebuffer-regions\">framebuffer-space stages</a>",
           "page": "chapters/synchronization.html"
@@ -6038,6 +6058,26 @@
         {
           "vuid": "VUID-vkCmdPipelineBarrier2-srcStageMask-09556",
           "text": "If <code>vkCmdPipelineBarrier2</code> is called within a render pass instance started with <a href=\"#vkCmdBeginRendering\">vkCmdBeginRendering</a>, this command <strong class=\"purple\">must</strong> only specify <a href=\"#synchronization-framebuffer-regions\">framebuffer-space stages</a> in <code>srcStageMask</code> and <code>dstStageMask</code>",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdPipelineBarrier2-image-09373",
+          "text": "If <code>vkCmdPipelineBarrier2</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, and the <code>image</code> member of any image memory barrier is a color resolve attachment, the corresponding color attachment <strong class=\"purple\">must</strong> be <a href=\"#VK_ATTACHMENT_UNUSED\">VK_ATTACHMENT_UNUSED</a>",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdPipelineBarrier2-image-09374",
+          "text": "If <code>vkCmdPipelineBarrier2</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, and the <code>image</code> member of any image memory barrier is a color resolve attachment, it <strong class=\"purple\">must</strong> have been created with a non-zero <a href=\"#VkExternalFormatANDROID\">VkExternalFormatANDROID</a>::<code>externalFormat</code> value",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdPipelineBarrier2-oldLayout-01181",
+          "text": "If <code>vkCmdPipelineBarrier2</code> is called within a render pass instance, the <code>oldLayout</code> and <code>newLayout</code> members of any image memory barrier included in this command <strong class=\"purple\">must</strong> be equal",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdPipelineBarrier2-srcQueueFamilyIndex-01182",
+          "text": "If <code>vkCmdPipelineBarrier2</code> is called within a render pass instance, the <code>srcQueueFamilyIndex</code> and <code>dstQueueFamilyIndex</code> members of any memory barrier included in this command <strong class=\"purple\">must</strong> be equal",
           "page": "chapters/synchronization.html"
         },
         {
@@ -6250,21 +6290,6 @@
           "page": "chapters/synchronization.html"
         },
         {
-          "vuid": "VUID-vkCmdPipelineBarrier-None-07889",
-          "text": "If <code>vkCmdPipelineBarrier</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, the render pass <strong class=\"purple\">must</strong> have been created with at least one subpass dependency that expresses a dependency from the current subpass to itself, does not include <a href=\"#VkDependencyFlagBits\">VK_DEPENDENCY_BY_REGION_BIT</a> if this command does not, does not include <a href=\"#VkDependencyFlagBits\">VK_DEPENDENCY_VIEW_LOCAL_BIT</a> if this command does not, and has <a href=\"#synchronization-dependencies-scopes\">synchronization scopes</a> and <a href=\"#synchronization-dependencies-access-scopes\">access scopes</a> that are all supersets of the scopes defined in this command",
-          "page": "chapters/synchronization.html"
-        },
-        {
-          "vuid": "VUID-vkCmdPipelineBarrier-bufferMemoryBarrierCount-01178",
-          "text": "If <code>vkCmdPipelineBarrier</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, it <strong class=\"purple\">must</strong> not include any buffer memory barriers",
-          "page": "chapters/synchronization.html"
-        },
-        {
-          "vuid": "VUID-vkCmdPipelineBarrier-image-04073",
-          "text": "If <code>vkCmdPipelineBarrier</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, the <code>image</code> member of any image memory barrier included in this command <strong class=\"purple\">must</strong> be an attachment used in the current subpass both as an input attachment, and as either a color, color resolve, or depth/stencil attachment",
-          "page": "chapters/synchronization.html"
-        },
-        {
           "vuid": "VUID-vkCmdPipelineBarrier-image-09373",
           "text": "If <code>vkCmdPipelineBarrier</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, and the <code>image</code> member of any image memory barrier is a color resolve attachment, the corresponding color attachment <strong class=\"purple\">must</strong> be <a href=\"#VK_ATTACHMENT_UNUSED\">VK_ATTACHMENT_UNUSED</a>",
           "page": "chapters/synchronization.html"
@@ -6282,6 +6307,21 @@
         {
           "vuid": "VUID-vkCmdPipelineBarrier-srcQueueFamilyIndex-01182",
           "text": "If <code>vkCmdPipelineBarrier</code> is called within a render pass instance, the <code>srcQueueFamilyIndex</code> and <code>dstQueueFamilyIndex</code> members of any memory barrier included in this command <strong class=\"purple\">must</strong> be equal",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdPipelineBarrier-None-07889",
+          "text": "If <code>vkCmdPipelineBarrier</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, the render pass <strong class=\"purple\">must</strong> have been created with at least one subpass dependency that expresses a dependency from the current subpass to itself, does not include <a href=\"#VkDependencyFlagBits\">VK_DEPENDENCY_BY_REGION_BIT</a> if this command does not, does not include <a href=\"#VkDependencyFlagBits\">VK_DEPENDENCY_VIEW_LOCAL_BIT</a> if this command does not, and has <a href=\"#synchronization-dependencies-scopes\">synchronization scopes</a> and <a href=\"#synchronization-dependencies-access-scopes\">access scopes</a> that are all supersets of the scopes defined in this command",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdPipelineBarrier-bufferMemoryBarrierCount-01178",
+          "text": "If <code>vkCmdPipelineBarrier</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, it <strong class=\"purple\">must</strong> not include any buffer memory barriers",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdPipelineBarrier-image-04073",
+          "text": "If <code>vkCmdPipelineBarrier</code> is called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, the <code>image</code> member of any image memory barrier included in this command <strong class=\"purple\">must</strong> be an attachment used in the current subpass both as an input attachment, and as either a color, color resolve, or depth/stencil attachment",
           "page": "chapters/synchronization.html"
         },
         {
@@ -15333,7 +15373,7 @@
         },
         {
           "vuid": "VUID-VkShaderCreateInfoEXT-pNext-11378",
-          "text": "If the <code>pNext</code> chain specifies a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, the <code>OpArrayLength</code> instruction <strong class=\"purple\">must</strong> not be used on that resource",
+          "text": "If the <code>pNext</code> chain specifies a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using     <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>,     <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>,     or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, the     <code>OpArrayLength</code> or <code>OpUntypedArrayLengthKHR</code>     instruction <strong class=\"purple\">must</strong> not be used on that resource",
           "page": "chapters/shaders.html"
         },
         {
@@ -17200,7 +17240,7 @@
         },
         {
           "vuid": "VUID-VkPipelineShaderStageCreateInfo-pNext-11378",
-          "text": "If the <code>pNext</code> chain specifies a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, the <code>OpArrayLength</code> instruction <strong class=\"purple\">must</strong> not be used on that resource",
+          "text": "If the <code>pNext</code> chain specifies a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using     <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>,     <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>,     or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, the     <code>OpArrayLength</code> or <code>OpUntypedArrayLengthKHR</code>     instruction <strong class=\"purple\">must</strong> not be used on that resource",
           "page": "chapters/pipelines.html"
         },
         {
@@ -19555,6 +19595,36 @@
           "page": "chapters/pipelines.html"
         },
         {
+          "vuid": "VUID-VkGraphicsPipelineCreateInfo-flags-12355",
+          "text": "If <code>flags</code> includes <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</a>, all libraries linked to this pipeline <strong class=\"purple\">must</strong> also have that flag set",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkGraphicsPipelineCreateInfo-flags-12356",
+          "text": "If <code>flags</code> does not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</a>, all libraries linked to this pipeline <strong class=\"purple\">must</strong> also not have that flag set",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkGraphicsPipelineCreateInfo-flags-12357",
+          "text": "If <code>flags</code> includes <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a>, all libraries linked to this pipeline <strong class=\"purple\">must</strong> also have that flag set",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkGraphicsPipelineCreateInfo-flags-12358",
+          "text": "If <code>flags</code> does not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a>, all libraries linked to this pipeline <strong class=\"purple\">must</strong> also not have that flag set",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkGraphicsPipelineCreateInfo-flags-12359",
+          "text": "If <code>flags</code> includes <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>, all libraries linked to this pipeline <strong class=\"purple\">must</strong> also have that flag set",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkGraphicsPipelineCreateInfo-flags-12360",
+          "text": "If <code>flags</code> does not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>, all libraries linked to this pipeline <strong class=\"purple\">must</strong> also not have that flag set",
+          "page": "chapters/pipelines.html"
+        },
+        {
           "vuid": "VUID-VkGraphicsPipelineCreateInfo-sType-sType",
           "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <a href=\"#VkStructureType\">VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO</a>",
           "page": "chapters/pipelines.html"
@@ -20207,6 +20277,16 @@
         {
           "vuid": "VUID-VkRayTracingPipelineCreateInfoKHR-flags-11276",
           "text": "If <a href=\"#VkPipelineCreateFlags2CreateInfoKHR\">VkPipelineCreateFlags2CreateInfoKHR</a>::<code>flags</code> does not include <a href=\"#VkPipelineCreateFlagBits2KHR\">VK_PIPELINE_CREATE_2_DESCRIPTOR_HEAP_BIT_EXT</a>, all libraries linked to this pipeline <strong class=\"purple\">must</strong> also not have that flag set",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkRayTracingPipelineCreateInfoKHR-flags-12361",
+          "text": "If <code>flags</code> includes <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</a>, all libraries linked to this pipeline <strong class=\"purple\">must</strong> also have that flag set",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkRayTracingPipelineCreateInfoKHR-flags-12362",
+          "text": "If <code>flags</code> does not include <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</a>, all libraries linked to this pipeline <strong class=\"purple\">must</strong> also not have that flag set",
           "page": "chapters/pipelines.html"
         },
         {
@@ -21642,31 +21722,6 @@
         {
           "vuid": "VUID-VkPipelineLibraryCreateInfoKHR-pLibraries-06855",
           "text": "If any library in <code>pLibraries</code> was created with a shader stage with <a href=\"#VkPipelineShaderStageModuleIdentifierCreateInfoEXT\">VkPipelineShaderStageModuleIdentifierCreateInfoEXT</a> and <code>identifierSize</code> not equal to 0, the pipeline <strong class=\"purple\">must</strong> be created with the <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a> flag set",
-          "page": "chapters/pipelines.html"
-        },
-        {
-          "vuid": "VUID-VkPipelineLibraryCreateInfoKHR-pLibraries-08096",
-          "text": "If any element of <code>pLibraries</code> was created with <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</a>, all elements <strong class=\"purple\">must</strong> have been created with <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</a>",
-          "page": "chapters/pipelines.html"
-        },
-        {
-          "vuid": "VUID-VkPipelineLibraryCreateInfoKHR-pipeline-07404",
-          "text": "If <code>pipeline</code> is being created with <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a>, every element of <code>pLibraries</code> <strong class=\"purple\">must</strong> have been created with <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a>",
-          "page": "chapters/pipelines.html"
-        },
-        {
-          "vuid": "VUID-VkPipelineLibraryCreateInfoKHR-pipeline-07405",
-          "text": "If <code>pipeline</code> is being created without <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a>, every element of <code>pLibraries</code> <strong class=\"purple\">must</strong> have been created without <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT</a>",
-          "page": "chapters/pipelines.html"
-        },
-        {
-          "vuid": "VUID-VkPipelineLibraryCreateInfoKHR-pipeline-07406",
-          "text": "If <code>pipeline</code> is being created with <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>, every element of <code>pLibraries</code> <strong class=\"purple\">must</strong> have been created with <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
-          "page": "chapters/pipelines.html"
-        },
-        {
-          "vuid": "VUID-VkPipelineLibraryCreateInfoKHR-pipeline-07407",
-          "text": "If <code>pipeline</code> is being created without <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>, every element of <code>pLibraries</code> <strong class=\"purple\">must</strong> have been created without <a href=\"#VkPipelineCreateFlagBits\">VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT</a>",
           "page": "chapters/pipelines.html"
         },
         {
@@ -23205,7 +23260,7 @@
         },
         {
           "vuid": "VUID-VkImportMemoryFdInfoKHR-fd-01746",
-          "text": "The memory represented by <code>fd</code> <strong class=\"purple\">must</strong> have been created from a physical device and driver that is compatible with <code>device</code> and <code>handleType</code>, as described in <a href=\"#external-memory-handle-types-compatibility\">External Memory Handle Types Compatibility</a>",
+          "text": "The memory represented by <code>fd</code> <strong class=\"purple\">must</strong> have been created from a physical device and driver that is compatible with <code>device</code> and <code>handleType</code>, as described in <a href=\"#external-memory-handle-types-compatibility\">external memory handle types compatibility</a>",
           "page": "chapters/memory.html"
         },
         {
@@ -46951,18 +47006,8 @@
           "page": "chapters/copies.html"
         },
         {
-          "vuid": "VUID-VkCopyMemoryIndirectInfoKHR-srcCopyFlags-requiredbitmask",
-          "text": "<code>srcCopyFlags</code> <strong class=\"purple\">must</strong> not be <code>0</code>",
-          "page": "chapters/copies.html"
-        },
-        {
           "vuid": "VUID-VkCopyMemoryIndirectInfoKHR-dstCopyFlags-parameter",
           "text": "<code>dstCopyFlags</code> <strong class=\"purple\">must</strong> be a valid combination of <a href=\"#VkAddressCopyFlagBitsKHR\">VkAddressCopyFlagBitsKHR</a> values",
-          "page": "chapters/copies.html"
-        },
-        {
-          "vuid": "VUID-VkCopyMemoryIndirectInfoKHR-dstCopyFlags-requiredbitmask",
-          "text": "<code>dstCopyFlags</code> <strong class=\"purple\">must</strong> not be <code>0</code>",
           "page": "chapters/copies.html"
         }
       ]
@@ -47269,11 +47314,6 @@
         {
           "vuid": "VUID-VkCopyMemoryToImageIndirectInfoKHR-srcCopyFlags-parameter",
           "text": "<code>srcCopyFlags</code> <strong class=\"purple\">must</strong> be a valid combination of <a href=\"#VkAddressCopyFlagBitsKHR\">VkAddressCopyFlagBitsKHR</a> values",
-          "page": "chapters/copies.html"
-        },
-        {
-          "vuid": "VUID-VkCopyMemoryToImageIndirectInfoKHR-srcCopyFlags-requiredbitmask",
-          "text": "<code>srcCopyFlags</code> <strong class=\"purple\">must</strong> not be <code>0</code>",
           "page": "chapters/copies.html"
         },
         {
@@ -96448,6 +96488,59 @@
         }
       ]
     },
+    "vkCreateUbmSurfaceSEC": {
+      "core": [
+        {
+          "vuid": "VUID-vkCreateUbmSurfaceSEC-instance-parameter",
+          "text": "<code>instance</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkInstance\">VkInstance</a> handle",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-vkCreateUbmSurfaceSEC-pCreateInfo-parameter",
+          "text": "<code>pCreateInfo</code> <strong class=\"purple\">must</strong> be a valid pointer to a valid <a href=\"#VkUbmSurfaceCreateInfoSEC\">VkUbmSurfaceCreateInfoSEC</a> structure",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-vkCreateUbmSurfaceSEC-pAllocator-parameter",
+          "text": "If <code>pAllocator</code> is not <code>NULL</code>, <code>pAllocator</code> <strong class=\"purple\">must</strong> be a valid pointer to a valid <a href=\"#VkAllocationCallbacks\">VkAllocationCallbacks</a> structure",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-vkCreateUbmSurfaceSEC-pSurface-parameter",
+          "text": "<code>pSurface</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkSurfaceKHR\">VkSurfaceKHR</a> handle",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        }
+      ]
+    },
+    "VkUbmSurfaceCreateInfoSEC": {
+      "core": [
+        {
+          "vuid": "VUID-VkUbmSurfaceCreateInfoSEC-ubm_device-12366",
+          "text": "<code>ubm_device</code> <strong class=\"purple\">must</strong> point to a valid UBM <code>ubm_device</code>",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-VkUbmSurfaceCreateInfoSEC-ubm_surface-12367",
+          "text": "<code>ubm_surface</code> <strong class=\"purple\">must</strong> point to a valid UBM <code>ubm_surface</code>",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-VkUbmSurfaceCreateInfoSEC-sType-sType",
+          "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <a href=\"#VkStructureType\">VK_STRUCTURE_TYPE_UBM_SURFACE_CREATE_INFO_SEC</a>",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-VkUbmSurfaceCreateInfoSEC-pNext-pNext",
+          "text": "<code>pNext</code> <strong class=\"purple\">must</strong> be <code>NULL</code>",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-VkUbmSurfaceCreateInfoSEC-flags-zerobitmask",
+          "text": "<code>flags</code> <strong class=\"purple\">must</strong> be <code>0</code>",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        }
+      ]
+    },
     "vkDestroySurfaceKHR": {
       "core": [
         {
@@ -97318,6 +97411,30 @@
         }
       ]
     },
+    "vkGetPhysicalDeviceUbmPresentationSupportSEC": {
+      "core": [
+        {
+          "vuid": "VUID-vkGetPhysicalDeviceUbmPresentationSupportSEC-ubm_device-12368",
+          "text": "<code>ubm_device</code> <strong class=\"purple\">must</strong> point to a valid UBM <code>ubm_device</code>",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-vkGetPhysicalDeviceUbmPresentationSupportSEC-queueFamilyIndex-12369",
+          "text": "<code>queueFamilyIndex</code> <strong class=\"purple\">must</strong> be less than <code>pQueueFamilyPropertyCount</code> returned by <code>vkGetPhysicalDeviceQueueFamilyProperties</code> for the given <code>physicalDevice</code>",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-vkGetPhysicalDeviceUbmPresentationSupportSEC-physicalDevice-parameter",
+          "text": "<code>physicalDevice</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkPhysicalDevice\">VkPhysicalDevice</a> handle",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-vkGetPhysicalDeviceUbmPresentationSupportSEC-ubm_device-parameter",
+          "text": "<code>ubm_device</code> <strong class=\"purple\">must</strong> be a valid pointer to a <code>ubm_device</code> value",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        }
+      ]
+    },
     "vkGetPhysicalDeviceSurfaceCapabilitiesKHR": {
       "core": [
         {
@@ -98100,6 +98217,16 @@
     },
     "VkSwapchainTimeDomainPropertiesEXT": {
       "core": [
+        {
+          "vuid": "VUID-VkSwapchainTimeDomainPropertiesEXT-pTimeDomains-12370",
+          "text": "<code>pTimeDomains</code> and <code>pTimeDomainIds</code> <strong class=\"purple\">must</strong> both be <code>NULL</code> or both not be <code>NULL</code>",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-VkSwapchainTimeDomainPropertiesEXT-pTimeDomains-12371",
+          "text": "If <code>pTimeDomains</code> and <code>pTimeDomainIds</code> are not <code>NULL</code>, then <code>timeDomainCount</code> <strong class=\"purple\">must</strong> not be zero",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
         {
           "vuid": "VUID-VkSwapchainTimeDomainPropertiesEXT-sType-sType",
           "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <a href=\"#VkStructureType\">VK_STRUCTURE_TYPE_SWAPCHAIN_TIME_DOMAIN_PROPERTIES_EXT</a>",
@@ -99423,12 +99550,12 @@
       "core": [
         {
           "vuid": "VUID-VkPresentIdKHR-swapchainCount-04998",
-          "text": "<code>swapchainCount</code> <strong class=\"purple\">must</strong> be the same value as <code>VkPresentInfoKHR</code>::<code>swapchainCount</code>, where this <code>VkPresentIdKHR</code> is in the <code>pNext</code> chain of the <code>VkPresentInfoKHR</code> structure",
+          "text": "<code>swapchainCount</code> <strong class=\"purple\">must</strong> be the same value as <a href=\"#VkPresentInfoKHR\">VkPresentInfoKHR</a>::<code>swapchainCount</code>, where this <code>VkPresentIdKHR</code> is in the <code>pNext</code> chain of the <a href=\"#VkPresentInfoKHR\">VkPresentInfoKHR</a> structure",
           "page": "chapters/VK_KHR_surface/wsi.html"
         },
         {
           "vuid": "VUID-VkPresentIdKHR-presentIds-04999",
-          "text": "Each <code>presentIds</code> entry <strong class=\"purple\">must</strong> be greater than any previous <code>presentIds</code> entry passed for the associated <code>pSwapchains</code> entry",
+          "text": "Each non-zero entry in <code>presentIds</code> <strong class=\"purple\">must</strong> be greater than all previously submitted present ids for the associated swapchain in <a href=\"#VkPresentInfoKHR\">VkPresentInfoKHR</a>::<code>pSwapchains</code>",
           "page": "chapters/VK_KHR_surface/wsi.html"
         },
         {
@@ -99481,12 +99608,12 @@
       "core": [
         {
           "vuid": "VUID-VkPresentId2KHR-swapchainCount-10818",
-          "text": "<code>swapchainCount</code> <strong class=\"purple\">must</strong> be the same value as <code>VkPresentInfoKHR</code>::<code>swapchainCount</code>, where this <code>VkPresentId2KHR</code> is in the <code>pNext</code> chain of the <code>VkPresentInfoKHR</code> structure",
+          "text": "<code>swapchainCount</code> <strong class=\"purple\">must</strong> be the same value as <a href=\"#VkPresentInfoKHR\">VkPresentInfoKHR</a>::<code>swapchainCount</code>, where this <code>VkPresentId2KHR</code> is in the <code>pNext</code> chain of the <a href=\"#VkPresentInfoKHR\">VkPresentInfoKHR</a> structure",
           "page": "chapters/VK_KHR_surface/wsi.html"
         },
         {
           "vuid": "VUID-VkPresentId2KHR-presentIds-10819",
-          "text": "Each <code>presentIds</code> entry <strong class=\"purple\">must</strong> be greater than any previous <code>presentIds</code> entry passed for the associated <code>pSwapchains</code> entry",
+          "text": "Each non-zero entry in <code>presentIds</code> <strong class=\"purple\">must</strong> be greater than all previously submitted present ids for the associated swapchain in <a href=\"#VkPresentInfoKHR\">VkPresentInfoKHR</a>::<code>pSwapchains</code>",
           "page": "chapters/VK_KHR_surface/wsi.html"
         },
         {
@@ -103590,11 +103717,6 @@
           "page": "chapters/accelstructures.html"
         },
         {
-          "vuid": "VUID-VkBuildPartitionedAccelerationStructureInfoNV-dstAccelerationStructureData-10561",
-          "text": "<code>dstAccelerationStructureData</code> <strong class=\"purple\">must</strong> not be <code>NULL</code>",
-          "page": "chapters/accelstructures.html"
-        },
-        {
           "vuid": "VUID-VkBuildPartitionedAccelerationStructureInfoNV-dstAccelerationStructureData-10562",
           "text": "Memory at <code>dstAccelerationStructureData</code> <strong class=\"purple\">must</strong> be equal or larger than the <a href=\"#VkAccelerationStructureBuildSizesInfoKHR\">VkAccelerationStructureBuildSizesInfoKHR</a>::<code>accelerationStructureSize</code> value returned from <a href=\"#vkGetPartitionedAccelerationStructuresBuildSizesNV\">vkGetPartitionedAccelerationStructuresBuildSizesNV</a> with the same build parameters",
           "page": "chapters/accelstructures.html"
@@ -103632,11 +103754,6 @@
         {
           "vuid": "VUID-VkBuildPartitionedAccelerationStructureInfoNV-dstAccelerationStructureData-parameter",
           "text": "<code>dstAccelerationStructureData</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkDeviceAddress\">VkDeviceAddress</a> value",
-          "page": "chapters/accelstructures.html"
-        },
-        {
-          "vuid": "VUID-VkBuildPartitionedAccelerationStructureInfoNV-scratchData-parameter",
-          "text": "<code>scratchData</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkDeviceAddress\">VkDeviceAddress</a> value",
           "page": "chapters/accelstructures.html"
         },
         {
@@ -116543,12 +116660,22 @@
         },
         {
           "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-None-11840",
-          "text": "If a <a href=\"#VkDataGraphPipelineIdentifierCreateInfoARM\">VkDataGraphPipelineIdentifierCreateInfoARM</a> or <a href=\"#VkDataGraphPipelineBuiltinModelCreateInfoQCOM\">VkDataGraphPipelineBuiltinModelCreateInfoQCOM</a>     structure is included in the <code>pNext</code> chain, then <code>flags</code> <strong class=\"purple\">must</strong>     contain <a href=\"#VkPipelineCreateFlagBits2KHR\">VK_PIPELINE_CREATE_2_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a>",
+          "text": "If a <a href=\"#VkDataGraphPipelineIdentifierCreateInfoARM\">VkDataGraphPipelineIdentifierCreateInfoARM</a> or a <a href=\"#VkDataGraphPipelineBuiltinModelCreateInfoQCOM\">VkDataGraphPipelineBuiltinModelCreateInfoQCOM</a>     structure is included in the <code>pNext</code> chain, then <code>flags</code> <strong class=\"purple\">must</strong>     contain <a href=\"#VkPipelineCreateFlagBits2KHR\">VK_PIPELINE_CREATE_2_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</a>",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
-          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-None-11841",
-          "text": "If a <a href=\"#VkDataGraphPipelineIdentifierCreateInfoARM\">VkDataGraphPipelineIdentifierCreateInfoARM</a> or <a href=\"#VkDataGraphPipelineBuiltinModelCreateInfoQCOM\">VkDataGraphPipelineBuiltinModelCreateInfoQCOM</a>     structure is included in the <code>pNext</code> chain, then     <code>resourceInfoCount</code> <strong class=\"purple\">must</strong> be 0 and <code>pResourceInfos</code> <strong class=\"purple\">must</strong> be     <code>NULL</code>",
+          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-None-12363",
+          "text": "If a <a href=\"#VkDataGraphPipelineIdentifierCreateInfoARM\">VkDataGraphPipelineIdentifierCreateInfoARM</a> or a <a href=\"#VkDataGraphPipelineBuiltinModelCreateInfoQCOM\">VkDataGraphPipelineBuiltinModelCreateInfoQCOM</a>     structure is included in the <code>pNext</code> chain, then     <code>resourceInfoCount</code> <strong class=\"purple\">must</strong> be 0",
+          "page": "chapters/VK_ARM_data_graph/graphs.html"
+        },
+        {
+          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-resourceInfoCount-12364",
+          "text": "If <code>resourceInfoCount</code> is equal to 0, then <code>pResourceInfos</code> <strong class=\"purple\">must</strong> equal <code>NULL</code>",
+          "page": "chapters/VK_ARM_data_graph/graphs.html"
+        },
+        {
+          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-None-12365",
+          "text": "If neither     a <a href=\"#VkDataGraphPipelineIdentifierCreateInfoARM\">VkDataGraphPipelineIdentifierCreateInfoARM</a> nor a <a href=\"#VkDataGraphPipelineBuiltinModelCreateInfoQCOM\">VkDataGraphPipelineBuiltinModelCreateInfoQCOM</a>     structure are     included in the <code>pNext</code> chain, then <code>resourceInfoCount</code> <strong class=\"purple\">must</strong> be     greater than 0",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         },
         {
@@ -116623,12 +116750,7 @@
         },
         {
           "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-pResourceInfos-parameter",
-          "text": "<code>pResourceInfos</code> <strong class=\"purple\">must</strong> be a valid pointer to an array of <code>resourceInfoCount</code> valid <a href=\"#VkDataGraphPipelineResourceInfoARM\">VkDataGraphPipelineResourceInfoARM</a> structures",
-          "page": "chapters/VK_ARM_data_graph/graphs.html"
-        },
-        {
-          "vuid": "VUID-VkDataGraphPipelineCreateInfoARM-resourceInfoCount-arraylength",
-          "text": "<code>resourceInfoCount</code> <strong class=\"purple\">must</strong> be greater than <code>0</code>",
+          "text": "If <code>resourceInfoCount</code> is not <code>0</code>, <code>pResourceInfos</code> <strong class=\"purple\">must</strong> be a valid pointer to an array of <code>resourceInfoCount</code> valid <a href=\"#VkDataGraphPipelineResourceInfoARM\">VkDataGraphPipelineResourceInfoARM</a> structures",
           "page": "chapters/VK_ARM_data_graph/graphs.html"
         }
       ]
@@ -124423,12 +124545,12 @@
         },
         {
           "vuid": "VUID-RuntimeSpirv-NonWritable-06340",
-          "text": "If the <a href=\"#features-fragmentStoresAndAtomics\"><code>fragmentStoresAndAtomics</code></a> feature is not enabled, then all storage image, storage texel buffer, and storage buffer variables in the fragment stage <strong class=\"purple\">must</strong> be decorated with the <code>NonWritable</code> decoration",
+          "text": "If the <a href=\"#features-fragmentStoresAndAtomics\"><code>fragmentStoresAndAtomics</code></a> feature is not enabled, then all     storage image, storage texel buffer, storage tensor,     and storage buffer variables in the fragment stage <strong class=\"purple\">must</strong> be decorated     with the <code>NonWritable</code> decoration",
           "page": "appendices/spirvenv.html"
         },
         {
           "vuid": "VUID-RuntimeSpirv-NonWritable-06341",
-          "text": "If the <a href=\"#features-vertexPipelineStoresAndAtomics\"><code>vertexPipelineStoresAndAtomics</code></a> feature is not enabled, then all storage image, storage texel buffer, and storage buffer variables in the vertex, tessellation, and geometry stages <strong class=\"purple\">must</strong> be decorated with the <code>NonWritable</code> decoration",
+          "text": "If the <a href=\"#features-vertexPipelineStoresAndAtomics\"><code>vertexPipelineStoresAndAtomics</code></a> feature is not enabled, then all     storage image, storage texel buffer, storage tensor,     and storage buffer variables in the vertex, tessellation, and geometry     stages <strong class=\"purple\">must</strong> be decorated with the <code>NonWritable</code> decoration",
           "page": "appendices/spirvenv.html"
         },
         {
