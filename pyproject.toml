@@ -5,6 +5,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "vulkan-object"
 version = "1.4.346"
+dependencies = [
+    "pyparsing",
+]
 authors = [
   { name="Spencer Fricke", email="spencer@lunarg.com" },
 ]
