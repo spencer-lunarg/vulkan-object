@@ -5,7 +5,10 @@
 name: 'Update'
 
 on:
-  workflow_dispatch:
+  schedule:
+    # Runs at 00:00 UTC every 5 days
+    - cron: '0 0 */5 * *'
+  workflow_dispatch: # This allows manual triggering from the GitHub UI
 
 jobs:
   create-pull-request:
@@ -18,12 +21,28 @@ jobs:
       - name: Update script
         run: python3 update.py
 
+      # If nothing changed, we stop the workflow early to prevent empty PRs.
+      # (used for cron job to search for header updates)
+      - name: Check for changes
+        id: git_check
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No updates found. Exiting."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Updates found!"
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Extract version from pyproject.toml
+        if: steps.git_check.outputs.has_changes == 'true'
         id: get_version
         run: |
           echo "version=$(grep 'version = ' pyproject.toml | cut -d '"' -f 2)" >> "$GITHUB_OUTPUT"
 
       - name: Create Pull Request
+        if: steps.git_check.outputs.has_changes == 'true'
+        id: cpr 
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -35,6 +54,7 @@ jobs:
           delete-branch: true
 
       - name: enable pr automerge
+        if: steps.git_check.outputs.has_changes == 'true'      
         run: |
           sleep 60
           gh pr merge --merge --auto ${{env.PULL_REQUEST_NUMBER}}
